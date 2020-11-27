@@ -1,0 +1,1 @@
+Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Murat\Source\Repos\developersimsek99\MMEntityFrameworkMarket\MMEntityFrameworkMarket\App_Data\ProductMM.mdf;Integrated Security=True
