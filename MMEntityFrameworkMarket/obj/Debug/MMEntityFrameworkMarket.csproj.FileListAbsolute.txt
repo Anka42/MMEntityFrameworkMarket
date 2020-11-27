@@ -1,0 +1,10 @@
+C:\Users\DEVELOPER\Source\Repos\MMEntityFrameworkMarket\MMEntityFrameworkMarket\bin\Debug\MMEntityFrameworkMarket.exe.config
+C:\Users\DEVELOPER\Source\Repos\MMEntityFrameworkMarket\MMEntityFrameworkMarket\bin\Debug\MMEntityFrameworkMarket.exe
+C:\Users\DEVELOPER\Source\Repos\MMEntityFrameworkMarket\MMEntityFrameworkMarket\bin\Debug\MMEntityFrameworkMarket.pdb
+C:\Users\DEVELOPER\Source\Repos\MMEntityFrameworkMarket\MMEntityFrameworkMarket\obj\Debug\MMEntityFrameworkMarket.csprojAssemblyReference.cache
+C:\Users\DEVELOPER\Source\Repos\MMEntityFrameworkMarket\MMEntityFrameworkMarket\obj\Debug\MMEntityFrameworkMarket.Form1.resources
+C:\Users\DEVELOPER\Source\Repos\MMEntityFrameworkMarket\MMEntityFrameworkMarket\obj\Debug\MMEntityFrameworkMarket.Properties.Resources.resources
+C:\Users\DEVELOPER\Source\Repos\MMEntityFrameworkMarket\MMEntityFrameworkMarket\obj\Debug\MMEntityFrameworkMarket.csproj.GenerateResource.cache
+C:\Users\DEVELOPER\Source\Repos\MMEntityFrameworkMarket\MMEntityFrameworkMarket\obj\Debug\MMEntityFrameworkMarket.csproj.CoreCompileInputs.cache
+C:\Users\DEVELOPER\Source\Repos\MMEntityFrameworkMarket\MMEntityFrameworkMarket\obj\Debug\MMEntityFrameworkMarket.exe
+C:\Users\DEVELOPER\Source\Repos\MMEntityFrameworkMarket\MMEntityFrameworkMarket\obj\Debug\MMEntityFrameworkMarket.pdb
