@@ -25,3 +25,10 @@ C:\Users\Murat\source\repos\developersimsek99\MMEntityFrameworkMarket\MMEntityFr
 C:\Users\Murat\source\repos\developersimsek99\MMEntityFrameworkMarket\MMEntityFrameworkMarket\obj\Debug\MMEntityFrameworkMarket.csproj.CopyComplete
 C:\Users\Murat\source\repos\developersimsek99\MMEntityFrameworkMarket\MMEntityFrameworkMarket\obj\Debug\MMEntityFrameworkMarket.exe
 C:\Users\Murat\source\repos\developersimsek99\MMEntityFrameworkMarket\MMEntityFrameworkMarket\obj\Debug\MMEntityFrameworkMarket.pdb
+C:\Users\DEVELOPER\Source\Repos\MMEntityFrameworkMarket\MMEntityFrameworkMarket\bin\Debug\App_Data\ProductMM.mdf
+C:\Users\DEVELOPER\Source\Repos\MMEntityFrameworkMarket\MMEntityFrameworkMarket\bin\Debug\App_Data\ProductMM_log.ldf
+C:\Users\DEVELOPER\Source\Repos\MMEntityFrameworkMarket\MMEntityFrameworkMarket\bin\Debug\EntityFramework.dll
+C:\Users\DEVELOPER\Source\Repos\MMEntityFrameworkMarket\MMEntityFrameworkMarket\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\DEVELOPER\Source\Repos\MMEntityFrameworkMarket\MMEntityFrameworkMarket\bin\Debug\EntityFramework.xml
+C:\Users\DEVELOPER\Source\Repos\MMEntityFrameworkMarket\MMEntityFrameworkMarket\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\DEVELOPER\Source\Repos\MMEntityFrameworkMarket\MMEntityFrameworkMarket\obj\Debug\MMEntityFrameworkMarket.csproj.CopyComplete
