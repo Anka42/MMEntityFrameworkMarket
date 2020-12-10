@@ -25,5 +25,16 @@ namespace MMEntityFrameworkMarket
                 dgwProduct.DataSource = context.Products.ToList();
             }
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void cbxSearch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tbxSearch.Visible = true;
+            pbxSearch.Visible = true;
+        }
     }
 }
