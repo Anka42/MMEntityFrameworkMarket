@@ -100,6 +100,7 @@
             this.dgwProduct.Name = "dgwProduct";
             this.dgwProduct.Size = new System.Drawing.Size(775, 228);
             this.dgwProduct.TabIndex = 0;
+            this.dgwProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwProduct_CellClick);
             // 
             // groupBox1
             // 
@@ -244,6 +245,7 @@
             this.btnUpdate.TabIndex = 11;
             this.btnUpdate.Text = "Ürünü Güncelle";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // tbxCategoryUpdate
             // 

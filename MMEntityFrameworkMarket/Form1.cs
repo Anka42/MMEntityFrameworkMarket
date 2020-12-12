@@ -51,5 +51,28 @@ namespace MMEntityFrameworkMarket
             dgwProduct.DataSource = productDal.Listeleme();
             MessageBox.Show("Ürün Eklendi!","Entity Framework Market");
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            productDal.Guncelle(new Product {
+                Id = Convert.ToInt32(dgwProduct.CurrentRow.Cells[0].Value),
+                Name = tbxNameUpdate.Text,
+                Price = Convert.ToDecimal(tbxPriceUpdate.Text),
+                StockAmount = Convert.ToDecimal(tbxStockAmountUpdate.Text),
+                StockAmountType = cbxStockAmountTypeUpdate.Text,
+                Category = tbxCategoryUpdate.Text
+            });
+            dgwProduct.DataSource = productDal.Listeleme();
+            MessageBox.Show("Ürün Güncellendi !","Entity Framework Market");
+        }
+
+        private void dgwProduct_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            tbxNameUpdate.Text = dgwProduct.CurrentRow.Cells[1].Value.ToString();
+            tbxPriceUpdate.Text = dgwProduct.CurrentRow.Cells[2].Value.ToString();
+            tbxStockAmountUpdate.Text = dgwProduct.CurrentRow.Cells[3].Value.ToString();
+            cbxStockAmountTypeUpdate.Text = dgwProduct.CurrentRow.Cells[4].Value.ToString();
+            tbxCategoryUpdate.Text = dgwProduct.CurrentRow.Cells[5].Value.ToString();
+        }
     }
 }
