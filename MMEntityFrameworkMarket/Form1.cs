@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -82,6 +83,26 @@ namespace MMEntityFrameworkMarket
             });
             dgwProduct.DataSource = productDal.Listeleme();
             MessageBox.Show("Ürün Silindi !","Entity Framework Market");
+        }
+
+        private void tbxSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (cbxSearch.SelectedIndex == 0)
+            {
+                SearchProducts(tbxSearch.Text);
+                void SearchProducts(string key)
+                {
+                    dgwProduct.DataSource = productDal.Listeleme().Where(p => p.Name.ToLower(new CultureInfo("tr-TR", false)).Contains(key)).ToList();
+                }
+            }
+            else if(cbxSearch.SelectedIndex == 1)
+            {
+                SearchProducts(tbxSearch.Text);
+                void SearchProducts(string key)
+                {
+                    dgwProduct.DataSource = productDal.Listeleme().Where(p => p.Category.ToLower(new CultureInfo("tr-TR", false)).Contains(key)).ToList();
+                }
+            }
         }
     }
 }

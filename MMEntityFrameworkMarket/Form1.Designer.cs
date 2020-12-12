@@ -359,6 +359,7 @@
             this.tbxSearch.Size = new System.Drawing.Size(140, 20);
             this.tbxSearch.TabIndex = 5;
             this.tbxSearch.Visible = false;
+            this.tbxSearch.TextChanged += new System.EventHandler(this.tbxSearch_TextChanged);
             // 
             // label11
             // 
