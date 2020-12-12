@@ -13,6 +13,7 @@ namespace MMEntityFrameworkMarket
 {
     public partial class Form1 : Form
     {
+        ProductDal productDal = new ProductDal();
         public Form1()
         {
             InitializeComponent();
@@ -20,6 +21,7 @@ namespace MMEntityFrameworkMarket
         
         private void Form1_Load(object sender, EventArgs e)
         {
+            
             using (EMarketContext context = new EMarketContext())
             {
                 dgwProduct.DataSource = context.Products.ToList();
@@ -35,6 +37,19 @@ namespace MMEntityFrameworkMarket
         {
             tbxSearch.Visible = true;
             pbxSearch.Visible = true;
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            productDal.Ekle(new Product {
+                Name = tbxName.Text,
+                Price = Convert.ToDecimal(tbxPrice.Text),
+                StockAmount = Convert.ToDecimal(tbxStockAmount.Text),
+                StockAmountType = cbxStockAmountType.Text,
+                Category = tbxCategory.Text
+            });
+            dgwProduct.DataSource = productDal.Listeleme();
+            MessageBox.Show("Ürün Eklendi!","Entity Framework Market");
         }
     }
 }
