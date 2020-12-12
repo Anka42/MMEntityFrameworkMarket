@@ -350,6 +350,7 @@
             this.btnRemove.TabIndex = 4;
             this.btnRemove.Text = "Ürünü Sil";
             this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // tbxSearch
             // 

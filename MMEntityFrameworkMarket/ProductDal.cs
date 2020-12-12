@@ -33,5 +33,14 @@ namespace MMEntityFrameworkMarket
                 context.SaveChanges();
             }
         }
+        public void Sil(Product product)
+        {
+            using (EMarketContext context = new EMarketContext())
+            {
+                var entity = context.Entry(product);
+                entity.State = EntityState.Deleted;
+                context.SaveChanges();
+            }
+        }
     }
 }

@@ -74,5 +74,14 @@ namespace MMEntityFrameworkMarket
             cbxStockAmountTypeUpdate.Text = dgwProduct.CurrentRow.Cells[4].Value.ToString();
             tbxCategoryUpdate.Text = dgwProduct.CurrentRow.Cells[5].Value.ToString();
         }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            productDal.Sil(new Product {
+                Id = Convert.ToInt32(dgwProduct.CurrentRow.Cells[0].Value)
+            });
+            dgwProduct.DataSource = productDal.Listeleme();
+            MessageBox.Show("Ürün Silindi !","Entity Framework Market");
+        }
     }
 }
