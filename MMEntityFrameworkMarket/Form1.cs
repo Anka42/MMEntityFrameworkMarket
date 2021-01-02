@@ -15,6 +15,7 @@ namespace MMEntityFrameworkMarket
     public partial class Form1 : Form
     {
         ProductDal productDal = new ProductDal();
+        UserDal userDal = new UserDal();
         public Form1()
         {
             InitializeComponent();
@@ -152,6 +153,48 @@ namespace MMEntityFrameworkMarket
             tbxStockAmountUpdate.Text = "";
             cbxStockAmountTypeUpdate.SelectedItem = null;
             tbxCategoryUpdate.Text = "";
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            grpRegister.Visible = true;
+        }
+
+        private void btnRegister2_Click(object sender, EventArgs e)
+        {
+            if (tbxPassword.Text == tbxPasswordRepeat.Text)
+            {
+                pbxTik.Visible = true;
+                userDal.Ekle(new User
+                {
+                    FirstName = tbxFirstName.Text,
+                    LastName = tbxLastName.Text,
+                    UserName = tbxUserName.Text,
+                    Password = tbxPassword.Text,
+                    Authority = cbxAuthority.Text
+                });
+                MessageBox.Show("Üye Olundu!");
+            }
+            else
+            {
+                MessageBox.Show("Şifreler Aynı Değil!");
+            }
+        }
+
+        private void pbxGozKapali_Click(object sender, EventArgs e)
+        {
+            tbxPassword.PasswordChar = '*';
+            tbxPasswordRepeat.PasswordChar = '*';
+            pbxGozKapali.Visible = false;
+            pbxGoz.Visible = true;
+        }
+
+        private void pbxGoz_Click(object sender, EventArgs e)
+        {
+            tbxPassword.PasswordChar = '\0';
+            tbxPasswordRepeat.PasswordChar = '\0';
+            pbxGoz.Visible = false;
+            pbxGozKapali.Visible = true;
         }
     }
 }

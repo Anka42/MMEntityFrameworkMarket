@@ -84,6 +84,25 @@
             this.btnClean = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.grpRegister = new System.Windows.Forms.GroupBox();
+            this.pbxTik = new System.Windows.Forms.PictureBox();
+            this.pbxGoz = new System.Windows.Forms.PictureBox();
+            this.lnkLogin = new System.Windows.Forms.LinkLabel();
+            this.label27 = new System.Windows.Forms.Label();
+            this.tbxPasswordRepeat = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.btnRegister2 = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.tbxPassword = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.tbxUserName = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.tbxLastName = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.cbxAuthority = new System.Windows.Forms.ComboBox();
+            this.tbxFirstName = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.pbxGozKapali = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgwProduct)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -94,6 +113,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.grpRegister.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxTik)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxGoz)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxGozKapali)).BeginInit();
             this.SuspendLayout();
             // 
             // dgwProduct
@@ -628,6 +651,7 @@
             this.btnRegister.TabIndex = 22;
             this.btnRegister.Text = "Üye Ol";
             this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // btnLogin
             // 
@@ -638,11 +662,204 @@
             this.btnLogin.Text = "Giriş Yap";
             this.btnLogin.UseVisualStyleBackColor = true;
             // 
+            // grpRegister
+            // 
+            this.grpRegister.Controls.Add(this.pbxGozKapali);
+            this.grpRegister.Controls.Add(this.pbxTik);
+            this.grpRegister.Controls.Add(this.pbxGoz);
+            this.grpRegister.Controls.Add(this.lnkLogin);
+            this.grpRegister.Controls.Add(this.label27);
+            this.grpRegister.Controls.Add(this.tbxPasswordRepeat);
+            this.grpRegister.Controls.Add(this.label26);
+            this.grpRegister.Controls.Add(this.btnRegister2);
+            this.grpRegister.Controls.Add(this.label20);
+            this.grpRegister.Controls.Add(this.tbxPassword);
+            this.grpRegister.Controls.Add(this.label19);
+            this.grpRegister.Controls.Add(this.tbxUserName);
+            this.grpRegister.Controls.Add(this.label18);
+            this.grpRegister.Controls.Add(this.tbxLastName);
+            this.grpRegister.Controls.Add(this.label17);
+            this.grpRegister.Controls.Add(this.cbxAuthority);
+            this.grpRegister.Controls.Add(this.tbxFirstName);
+            this.grpRegister.Controls.Add(this.label13);
+            this.grpRegister.Location = new System.Drawing.Point(805, 13);
+            this.grpRegister.Name = "grpRegister";
+            this.grpRegister.Size = new System.Drawing.Size(336, 304);
+            this.grpRegister.TabIndex = 24;
+            this.grpRegister.TabStop = false;
+            this.grpRegister.Text = "Üye Ol";
+            this.grpRegister.Visible = false;
+            // 
+            // pbxTik
+            // 
+            this.pbxTik.Image = ((System.Drawing.Image)(resources.GetObject("pbxTik.Image")));
+            this.pbxTik.Location = new System.Drawing.Point(219, 124);
+            this.pbxTik.Name = "pbxTik";
+            this.pbxTik.Size = new System.Drawing.Size(14, 14);
+            this.pbxTik.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxTik.TabIndex = 25;
+            this.pbxTik.TabStop = false;
+            this.pbxTik.Visible = false;
+            // 
+            // pbxGoz
+            // 
+            this.pbxGoz.Image = ((System.Drawing.Image)(resources.GetObject("pbxGoz.Image")));
+            this.pbxGoz.Location = new System.Drawing.Point(195, 124);
+            this.pbxGoz.Name = "pbxGoz";
+            this.pbxGoz.Size = new System.Drawing.Size(18, 14);
+            this.pbxGoz.TabIndex = 25;
+            this.pbxGoz.TabStop = false;
+            this.pbxGoz.Click += new System.EventHandler(this.pbxGoz_Click);
+            // 
+            // lnkLogin
+            // 
+            this.lnkLogin.AutoSize = true;
+            this.lnkLogin.Location = new System.Drawing.Point(169, 221);
+            this.lnkLogin.Name = "lnkLogin";
+            this.lnkLogin.Size = new System.Drawing.Size(49, 13);
+            this.lnkLogin.TabIndex = 25;
+            this.lnkLogin.TabStop = true;
+            this.lnkLogin.Text = "Giriş Yap";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(61, 221);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(107, 13);
+            this.label27.TabIndex = 25;
+            this.label27.Text = "Zaten üye oldun mu?";
+            // 
+            // tbxPasswordRepeat
+            // 
+            this.tbxPasswordRepeat.Location = new System.Drawing.Point(89, 133);
+            this.tbxPasswordRepeat.Name = "tbxPasswordRepeat";
+            this.tbxPasswordRepeat.PasswordChar = '*';
+            this.tbxPasswordRepeat.Size = new System.Drawing.Size(100, 20);
+            this.tbxPasswordRepeat.TabIndex = 12;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(16, 136);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(71, 13);
+            this.label26.TabIndex = 11;
+            this.label26.Text = "Şifre Tekrar : ";
+            // 
+            // btnRegister2
+            // 
+            this.btnRegister2.Location = new System.Drawing.Point(89, 185);
+            this.btnRegister2.Name = "btnRegister2";
+            this.btnRegister2.Size = new System.Drawing.Size(100, 23);
+            this.btnRegister2.TabIndex = 10;
+            this.btnRegister2.Text = "Üye Ol";
+            this.btnRegister2.UseVisualStyleBackColor = true;
+            this.btnRegister2.Click += new System.EventHandler(this.btnRegister2_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(16, 162);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(40, 13);
+            this.label20.TabIndex = 9;
+            this.label20.Text = "Yetki : ";
+            // 
+            // tbxPassword
+            // 
+            this.tbxPassword.Location = new System.Drawing.Point(89, 107);
+            this.tbxPassword.Name = "tbxPassword";
+            this.tbxPassword.PasswordChar = '*';
+            this.tbxPassword.Size = new System.Drawing.Size(100, 20);
+            this.tbxPassword.TabIndex = 8;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(16, 110);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(37, 13);
+            this.label19.TabIndex = 7;
+            this.label19.Text = "Şifre : ";
+            // 
+            // tbxUserName
+            // 
+            this.tbxUserName.Location = new System.Drawing.Point(89, 81);
+            this.tbxUserName.Name = "tbxUserName";
+            this.tbxUserName.Size = new System.Drawing.Size(100, 20);
+            this.tbxUserName.TabIndex = 6;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(16, 84);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(73, 13);
+            this.label18.TabIndex = 5;
+            this.label18.Text = "Kullanıcı Adı : ";
+            // 
+            // tbxLastName
+            // 
+            this.tbxLastName.Location = new System.Drawing.Point(89, 55);
+            this.tbxLastName.Name = "tbxLastName";
+            this.tbxLastName.Size = new System.Drawing.Size(100, 20);
+            this.tbxLastName.TabIndex = 4;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(16, 58);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(51, 13);
+            this.label17.TabIndex = 3;
+            this.label17.Text = "Soyisim : ";
+            // 
+            // cbxAuthority
+            // 
+            this.cbxAuthority.FormattingEnabled = true;
+            this.cbxAuthority.Items.AddRange(new object[] {
+            "Yetkili",
+            "Müşteri"});
+            this.cbxAuthority.Location = new System.Drawing.Point(89, 158);
+            this.cbxAuthority.Name = "cbxAuthority";
+            this.cbxAuthority.Size = new System.Drawing.Size(100, 21);
+            this.cbxAuthority.TabIndex = 2;
+            // 
+            // tbxFirstName
+            // 
+            this.tbxFirstName.Location = new System.Drawing.Point(89, 29);
+            this.tbxFirstName.Name = "tbxFirstName";
+            this.tbxFirstName.Size = new System.Drawing.Size(100, 20);
+            this.tbxFirstName.TabIndex = 1;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(16, 32);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(34, 13);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "İsim : ";
+            // 
+            // pbxGozKapali
+            // 
+            this.pbxGozKapali.Image = ((System.Drawing.Image)(resources.GetObject("pbxGozKapali.Image")));
+            this.pbxGozKapali.Location = new System.Drawing.Point(195, 124);
+            this.pbxGozKapali.Name = "pbxGozKapali";
+            this.pbxGozKapali.Size = new System.Drawing.Size(18, 14);
+            this.pbxGozKapali.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxGozKapali.TabIndex = 25;
+            this.pbxGozKapali.TabStop = false;
+            this.pbxGozKapali.Visible = false;
+            this.pbxGozKapali.Click += new System.EventHandler(this.pbxGozKapali_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1153, 697);
+            this.Controls.Add(this.grpRegister);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.btnClean);
@@ -683,6 +900,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.grpRegister.ResumeLayout(false);
+            this.grpRegister.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxTik)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxGoz)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxGozKapali)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -745,6 +967,25 @@
         private System.Windows.Forms.Button btnClean;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.GroupBox grpRegister;
+        private System.Windows.Forms.TextBox tbxPasswordRepeat;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Button btnRegister2;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox tbxPassword;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox tbxUserName;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox tbxLastName;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ComboBox cbxAuthority;
+        private System.Windows.Forms.TextBox tbxFirstName;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.LinkLabel lnkLogin;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.PictureBox pbxTik;
+        private System.Windows.Forms.PictureBox pbxGoz;
+        private System.Windows.Forms.PictureBox pbxGozKapali;
     }
 }
 
