@@ -61,6 +61,7 @@
             this.pbxSearch = new System.Windows.Forms.PictureBox();
             this.cbxSearch = new System.Windows.Forms.ComboBox();
             this.grpPreview = new System.Windows.Forms.GroupBox();
+            this.lblTl = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblCategory = new System.Windows.Forms.Label();
             this.lblStockAmountType = new System.Windows.Forms.Label();
@@ -80,7 +81,6 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.lblTl = new System.Windows.Forms.Label();
             this.btnClean = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
@@ -154,6 +154,7 @@
             // 
             // cbxStockAmountType
             // 
+            this.cbxStockAmountType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxStockAmountType.FormattingEnabled = true;
             this.cbxStockAmountType.Items.AddRange(new object[] {
             "Kg",
@@ -269,6 +270,7 @@
             // 
             // cbxStockAmountTypeUpdate
             // 
+            this.cbxStockAmountTypeUpdate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxStockAmountTypeUpdate.FormattingEnabled = true;
             this.cbxStockAmountTypeUpdate.Items.AddRange(new object[] {
             "Kg",
@@ -388,6 +390,7 @@
             // 
             // cbxSearch
             // 
+            this.cbxSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxSearch.FormattingEnabled = true;
             this.cbxSearch.Items.AddRange(new object[] {
             "Ürün İsmine Göre",
@@ -418,6 +421,15 @@
             this.grpPreview.TabStop = false;
             this.grpPreview.Text = "Ürün Önizleme";
             this.grpPreview.Visible = false;
+            // 
+            // lblTl
+            // 
+            this.lblTl.AutoSize = true;
+            this.lblTl.Location = new System.Drawing.Point(103, 59);
+            this.lblTl.Name = "lblTl";
+            this.lblTl.Size = new System.Drawing.Size(13, 13);
+            this.lblTl.TabIndex = 21;
+            this.lblTl.Text = "₺";
             // 
             // pictureBox1
             // 
@@ -597,15 +609,6 @@
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 20;
             this.pictureBox5.TabStop = false;
-            // 
-            // lblTl
-            // 
-            this.lblTl.AutoSize = true;
-            this.lblTl.Location = new System.Drawing.Point(103, 59);
-            this.lblTl.Name = "lblTl";
-            this.lblTl.Size = new System.Drawing.Size(13, 13);
-            this.lblTl.TabIndex = 21;
-            this.lblTl.Text = "₺";
             // 
             // btnClean
             // 
