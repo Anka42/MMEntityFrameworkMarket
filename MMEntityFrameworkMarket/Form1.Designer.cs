@@ -60,13 +60,13 @@
             this.label11 = new System.Windows.Forms.Label();
             this.pbxSearch = new System.Windows.Forms.PictureBox();
             this.cbxSearch = new System.Windows.Forms.ComboBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.grpPreview = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lblCategory = new System.Windows.Forms.Label();
+            this.lblStockAmountType = new System.Windows.Forms.Label();
+            this.lblStockAmount = new System.Windows.Forms.Label();
+            this.lblPrice = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -80,11 +80,15 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.lblTl = new System.Windows.Forms.Label();
+            this.btnClean = new System.Windows.Forms.Button();
+            this.btnRegister = new System.Windows.Forms.Button();
+            this.btnLogin = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwProduct)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxSearch)).BeginInit();
-            this.groupBox3.SuspendLayout();
+            this.grpPreview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -334,7 +338,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(12, 9);
+            this.btnExit.Location = new System.Drawing.Point(13, 10);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(105, 23);
             this.btnExit.TabIndex = 3;
@@ -344,17 +348,18 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(713, 9);
+            this.btnRemove.Location = new System.Drawing.Point(714, 58);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(75, 23);
             this.btnRemove.TabIndex = 4;
             this.btnRemove.Text = "Ürünü Sil";
             this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Visible = false;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // tbxSearch
             // 
-            this.tbxSearch.Location = new System.Drawing.Point(430, 37);
+            this.tbxSearch.Location = new System.Drawing.Point(430, 26);
             this.tbxSearch.Name = "tbxSearch";
             this.tbxSearch.Size = new System.Drawing.Size(140, 20);
             this.tbxSearch.TabIndex = 5;
@@ -364,7 +369,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(212, 40);
+            this.label11.Location = new System.Drawing.Point(212, 29);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(73, 13);
             this.label11.TabIndex = 6;
@@ -373,7 +378,7 @@
             // pbxSearch
             // 
             this.pbxSearch.Image = ((System.Drawing.Image)(resources.GetObject("pbxSearch.Image")));
-            this.pbxSearch.Location = new System.Drawing.Point(574, 37);
+            this.pbxSearch.Location = new System.Drawing.Point(574, 26);
             this.pbxSearch.Name = "pbxSearch";
             this.pbxSearch.Size = new System.Drawing.Size(20, 20);
             this.pbxSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -387,30 +392,32 @@
             this.cbxSearch.Items.AddRange(new object[] {
             "Ürün İsmine Göre",
             "Kategoriye Göre"});
-            this.cbxSearch.Location = new System.Drawing.Point(289, 36);
+            this.cbxSearch.Location = new System.Drawing.Point(289, 25);
             this.cbxSearch.Name = "cbxSearch";
             this.cbxSearch.Size = new System.Drawing.Size(121, 21);
             this.cbxSearch.TabIndex = 10;
             this.cbxSearch.SelectedIndexChanged += new System.EventHandler(this.cbxSearch_SelectedIndexChanged);
             // 
-            // groupBox3
+            // grpPreview
             // 
-            this.groupBox3.Controls.Add(this.pictureBox1);
-            this.groupBox3.Controls.Add(this.label20);
-            this.groupBox3.Controls.Add(this.label19);
-            this.groupBox3.Controls.Add(this.label18);
-            this.groupBox3.Controls.Add(this.label17);
-            this.groupBox3.Controls.Add(this.label13);
-            this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Controls.Add(this.label15);
-            this.groupBox3.Controls.Add(this.label16);
-            this.groupBox3.Location = new System.Drawing.Point(277, 324);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(248, 277);
-            this.groupBox3.TabIndex = 11;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Ürün Önizleme";
+            this.grpPreview.Controls.Add(this.lblTl);
+            this.grpPreview.Controls.Add(this.pictureBox1);
+            this.grpPreview.Controls.Add(this.lblCategory);
+            this.grpPreview.Controls.Add(this.lblStockAmountType);
+            this.grpPreview.Controls.Add(this.lblStockAmount);
+            this.grpPreview.Controls.Add(this.lblPrice);
+            this.grpPreview.Controls.Add(this.lblName);
+            this.grpPreview.Controls.Add(this.label12);
+            this.grpPreview.Controls.Add(this.label14);
+            this.grpPreview.Controls.Add(this.label15);
+            this.grpPreview.Controls.Add(this.label16);
+            this.grpPreview.Location = new System.Drawing.Point(277, 324);
+            this.grpPreview.Name = "grpPreview";
+            this.grpPreview.Size = new System.Drawing.Size(248, 277);
+            this.grpPreview.TabIndex = 11;
+            this.grpPreview.TabStop = false;
+            this.grpPreview.Text = "Ürün Önizleme";
+            this.grpPreview.Visible = false;
             // 
             // pictureBox1
             // 
@@ -422,50 +429,50 @@
             this.pictureBox1.TabIndex = 20;
             this.pictureBox1.TabStop = false;
             // 
-            // label20
+            // lblCategory
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(103, 112);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(41, 13);
-            this.label20.TabIndex = 19;
-            this.label20.Text = "label20";
+            this.lblCategory.AutoSize = true;
+            this.lblCategory.Location = new System.Drawing.Point(91, 112);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(41, 13);
+            this.lblCategory.TabIndex = 19;
+            this.lblCategory.Text = "label20";
             // 
-            // label19
+            // lblStockAmountType
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(166, 85);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(41, 13);
-            this.label19.TabIndex = 18;
-            this.label19.Text = "label19";
+            this.lblStockAmountType.AutoSize = true;
+            this.lblStockAmountType.Location = new System.Drawing.Point(96, 85);
+            this.lblStockAmountType.Name = "lblStockAmountType";
+            this.lblStockAmountType.Size = new System.Drawing.Size(41, 13);
+            this.lblStockAmountType.TabIndex = 18;
+            this.lblStockAmountType.Text = "label19";
             // 
-            // label18
+            // lblStockAmount
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(119, 85);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(41, 13);
-            this.label18.TabIndex = 17;
-            this.label18.Text = "label18";
+            this.lblStockAmount.AutoSize = true;
+            this.lblStockAmount.Location = new System.Drawing.Point(67, 85);
+            this.lblStockAmount.Name = "lblStockAmount";
+            this.lblStockAmount.Size = new System.Drawing.Size(41, 13);
+            this.lblStockAmount.TabIndex = 17;
+            this.lblStockAmount.Text = "label18";
             // 
-            // label17
+            // lblPrice
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(92, 59);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(41, 13);
-            this.label17.TabIndex = 16;
-            this.label17.Text = "label17";
+            this.lblPrice.AutoSize = true;
+            this.lblPrice.Location = new System.Drawing.Point(69, 59);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(41, 13);
+            this.lblPrice.TabIndex = 16;
+            this.lblPrice.Text = "label17";
             // 
-            // label13
+            // lblName
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(75, 33);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(41, 13);
-            this.label13.TabIndex = 15;
-            this.label13.Text = "label13";
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(63, 33);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(41, 13);
+            this.lblName.TabIndex = 15;
+            this.lblName.Text = "label13";
             // 
             // label12
             // 
@@ -481,9 +488,9 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(9, 85);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(104, 13);
+            this.label14.Size = new System.Drawing.Size(64, 13);
             this.label14.TabIndex = 12;
-            this.label14.Text = "Anlık Stok Durumu : ";
+            this.label14.Text = "Anlık Stok : ";
             // 
             // label15
             // 
@@ -591,11 +598,51 @@
             this.pictureBox5.TabIndex = 20;
             this.pictureBox5.TabStop = false;
             // 
+            // lblTl
+            // 
+            this.lblTl.AutoSize = true;
+            this.lblTl.Location = new System.Drawing.Point(103, 59);
+            this.lblTl.Name = "lblTl";
+            this.lblTl.Size = new System.Drawing.Size(13, 13);
+            this.lblTl.TabIndex = 21;
+            this.lblTl.Text = "₺";
+            // 
+            // btnClean
+            // 
+            this.btnClean.Location = new System.Drawing.Point(13, 34);
+            this.btnClean.Name = "btnClean";
+            this.btnClean.Size = new System.Drawing.Size(105, 23);
+            this.btnClean.TabIndex = 21;
+            this.btnClean.Text = "Verileri Temizle";
+            this.btnClean.UseVisualStyleBackColor = true;
+            this.btnClean.Click += new System.EventHandler(this.btnClean_Click);
+            // 
+            // btnRegister
+            // 
+            this.btnRegister.Location = new System.Drawing.Point(714, 12);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(75, 23);
+            this.btnRegister.TabIndex = 22;
+            this.btnRegister.Text = "Üye Ol";
+            this.btnRegister.UseVisualStyleBackColor = true;
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.Location = new System.Drawing.Point(714, 35);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLogin.TabIndex = 23;
+            this.btnLogin.Text = "Giriş Yap";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1153, 697);
+            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.btnRegister);
+            this.Controls.Add(this.btnClean);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
@@ -605,7 +652,7 @@
             this.Controls.Add(this.label23);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label21);
-            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.grpPreview);
             this.Controls.Add(this.cbxSearch);
             this.Controls.Add(this.pbxSearch);
             this.Controls.Add(this.label11);
@@ -619,14 +666,15 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Entity Framework Market";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.dgwProduct)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxSearch)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.grpPreview.ResumeLayout(false);
+            this.grpPreview.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -670,13 +718,13 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.PictureBox pbxSearch;
         private System.Windows.Forms.ComboBox cbxSearch;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox grpPreview;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblCategory;
+        private System.Windows.Forms.Label lblStockAmountType;
+        private System.Windows.Forms.Label lblStockAmount;
+        private System.Windows.Forms.Label lblPrice;
+        private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
@@ -690,6 +738,10 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label lblTl;
+        private System.Windows.Forms.Button btnClean;
+        private System.Windows.Forms.Button btnRegister;
+        private System.Windows.Forms.Button btnLogin;
     }
 }
 

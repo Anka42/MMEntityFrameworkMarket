@@ -51,6 +51,12 @@ namespace MMEntityFrameworkMarket
             });
             dgwProduct.DataSource = productDal.Listeleme();
             MessageBox.Show("Ürün Eklendi!","Entity Framework Market");
+
+            tbxName.Text = "";
+            tbxPrice.Text = "";
+            tbxStockAmount.Text = "";
+            cbxStockAmountType.SelectedItem = null;
+            tbxCategory.Text = "";
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -65,6 +71,13 @@ namespace MMEntityFrameworkMarket
             });
             dgwProduct.DataSource = productDal.Listeleme();
             MessageBox.Show("Ürün Güncellendi !","Entity Framework Market");
+
+
+            tbxNameUpdate.Text = "";
+            tbxPriceUpdate.Text = "";
+            tbxStockAmountUpdate.Text = "";
+            cbxStockAmountTypeUpdate.SelectedItem = null;
+            tbxCategoryUpdate.Text = "";
         }
 
         private void dgwProduct_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -74,6 +87,18 @@ namespace MMEntityFrameworkMarket
             tbxStockAmountUpdate.Text = dgwProduct.CurrentRow.Cells[3].Value.ToString();
             cbxStockAmountTypeUpdate.Text = dgwProduct.CurrentRow.Cells[4].Value.ToString();
             tbxCategoryUpdate.Text = dgwProduct.CurrentRow.Cells[5].Value.ToString();
+
+            grpPreview.Visible = true;
+            btnRemove.Visible = true;
+
+            lblName.Text = dgwProduct.CurrentRow.Cells[1].Value.ToString();
+            lblPrice.Text = dgwProduct.CurrentRow.Cells[2].Value.ToString();
+            
+
+            lblStockAmount.Text = dgwProduct.CurrentRow.Cells[3].Value.ToString();
+            lblStockAmountType.Text = dgwProduct.CurrentRow.Cells[4].Value.ToString();
+
+            lblCategory.Text = dgwProduct.CurrentRow.Cells[5].Value.ToString();
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
@@ -103,6 +128,30 @@ namespace MMEntityFrameworkMarket
                     dgwProduct.DataSource = productDal.Listeleme().Where(p => p.Category.ToLower(new CultureInfo("tr-TR", false)).Contains(key)).ToList();
                 }
             }
+        }
+
+        private void Form1_MouseClick(object sender, MouseEventArgs e)
+        {
+            grpPreview.Visible = false;
+            btnRemove.Visible = false;
+        }
+
+        private void btnClean_Click(object sender, EventArgs e)
+        {
+            grpPreview.Visible = false;
+            btnRemove.Visible = false;
+
+            tbxName.Text = "";
+            tbxPrice.Text = "";
+            tbxStockAmount.Text = "";
+            cbxStockAmountType.SelectedItem = null;
+            tbxCategory.Text = "";
+
+            tbxNameUpdate.Text = "";
+            tbxPriceUpdate.Text = "";
+            tbxStockAmountUpdate.Text = "";
+            cbxStockAmountTypeUpdate.SelectedItem = null;
+            tbxCategoryUpdate.Text = "";
         }
     }
 }
