@@ -104,15 +104,15 @@
             this.tbxFirstName = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.grpLogin = new System.Windows.Forms.GroupBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label30 = new System.Windows.Forms.Label();
+            this.pbxGozKapali2 = new System.Windows.Forms.PictureBox();
+            this.pbxGozAcik2 = new System.Windows.Forms.PictureBox();
+            this.btnLogin2 = new System.Windows.Forms.Button();
             this.tbxPasswordLogin = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.tbxUserNameLogin = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
-            this.btnLogin2 = new System.Windows.Forms.Button();
-            this.pbxGozKapali2 = new System.Windows.Forms.PictureBox();
-            this.pbxGozAcik2 = new System.Windows.Forms.PictureBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.label30 = new System.Windows.Forms.Label();
             this.lblMesaj = new System.Windows.Forms.Label();
             this.lblİsim = new System.Windows.Forms.Label();
             this.lblYetki = new System.Windows.Forms.Label();
@@ -896,6 +896,58 @@
             this.grpLogin.Text = "Giriş Yap";
             this.grpLogin.Visible = false;
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(174, 124);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(39, 13);
+            this.linkLabel1.TabIndex = 28;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Üye Ol";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(65, 124);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(117, 13);
+            this.label30.TabIndex = 29;
+            this.label30.Text = "Üye Değil Misin? Şimdi ";
+            // 
+            // pbxGozKapali2
+            // 
+            this.pbxGozKapali2.Image = ((System.Drawing.Image)(resources.GetObject("pbxGozKapali2.Image")));
+            this.pbxGozKapali2.Location = new System.Drawing.Point(199, 62);
+            this.pbxGozKapali2.Name = "pbxGozKapali2";
+            this.pbxGozKapali2.Size = new System.Drawing.Size(18, 14);
+            this.pbxGozKapali2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxGozKapali2.TabIndex = 26;
+            this.pbxGozKapali2.TabStop = false;
+            this.pbxGozKapali2.Visible = false;
+            this.pbxGozKapali2.Click += new System.EventHandler(this.pbxGozKapali2_Click);
+            // 
+            // pbxGozAcik2
+            // 
+            this.pbxGozAcik2.Image = ((System.Drawing.Image)(resources.GetObject("pbxGozAcik2.Image")));
+            this.pbxGozAcik2.Location = new System.Drawing.Point(200, 62);
+            this.pbxGozAcik2.Name = "pbxGozAcik2";
+            this.pbxGozAcik2.Size = new System.Drawing.Size(18, 14);
+            this.pbxGozAcik2.TabIndex = 27;
+            this.pbxGozAcik2.TabStop = false;
+            this.pbxGozAcik2.Click += new System.EventHandler(this.pbxGozAcik2_Click);
+            // 
+            // btnLogin2
+            // 
+            this.btnLogin2.Location = new System.Drawing.Point(89, 85);
+            this.btnLogin2.Name = "btnLogin2";
+            this.btnLogin2.Size = new System.Drawing.Size(100, 23);
+            this.btnLogin2.TabIndex = 13;
+            this.btnLogin2.Text = "Giriş Yap";
+            this.btnLogin2.UseVisualStyleBackColor = true;
+            this.btnLogin2.Click += new System.EventHandler(this.btnLogin2_Click);
+            // 
             // tbxPasswordLogin
             // 
             this.tbxPasswordLogin.Location = new System.Drawing.Point(89, 59);
@@ -929,58 +981,6 @@
             this.label29.TabIndex = 9;
             this.label29.Text = "Kullanıcı Adı : ";
             // 
-            // btnLogin2
-            // 
-            this.btnLogin2.Location = new System.Drawing.Point(89, 85);
-            this.btnLogin2.Name = "btnLogin2";
-            this.btnLogin2.Size = new System.Drawing.Size(100, 23);
-            this.btnLogin2.TabIndex = 13;
-            this.btnLogin2.Text = "Giriş Yap";
-            this.btnLogin2.UseVisualStyleBackColor = true;
-            this.btnLogin2.Click += new System.EventHandler(this.btnLogin2_Click);
-            // 
-            // pbxGozKapali2
-            // 
-            this.pbxGozKapali2.Image = ((System.Drawing.Image)(resources.GetObject("pbxGozKapali2.Image")));
-            this.pbxGozKapali2.Location = new System.Drawing.Point(199, 62);
-            this.pbxGozKapali2.Name = "pbxGozKapali2";
-            this.pbxGozKapali2.Size = new System.Drawing.Size(18, 14);
-            this.pbxGozKapali2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxGozKapali2.TabIndex = 26;
-            this.pbxGozKapali2.TabStop = false;
-            this.pbxGozKapali2.Visible = false;
-            this.pbxGozKapali2.Click += new System.EventHandler(this.pbxGozKapali2_Click);
-            // 
-            // pbxGozAcik2
-            // 
-            this.pbxGozAcik2.Image = ((System.Drawing.Image)(resources.GetObject("pbxGozAcik2.Image")));
-            this.pbxGozAcik2.Location = new System.Drawing.Point(200, 62);
-            this.pbxGozAcik2.Name = "pbxGozAcik2";
-            this.pbxGozAcik2.Size = new System.Drawing.Size(18, 14);
-            this.pbxGozAcik2.TabIndex = 27;
-            this.pbxGozAcik2.TabStop = false;
-            this.pbxGozAcik2.Click += new System.EventHandler(this.pbxGozAcik2_Click);
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(174, 124);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(39, 13);
-            this.linkLabel1.TabIndex = 28;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Üye Ol";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(65, 124);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(117, 13);
-            this.label30.TabIndex = 29;
-            this.label30.Text = "Üye Değil Misin? Şimdi ";
-            // 
             // lblMesaj
             // 
             this.lblMesaj.AutoSize = true;
@@ -996,8 +996,9 @@
             this.lblİsim.AutoSize = true;
             this.lblİsim.Location = new System.Drawing.Point(867, 12);
             this.lblİsim.Name = "lblİsim";
-            this.lblİsim.Size = new System.Drawing.Size(0, 13);
+            this.lblİsim.Size = new System.Drawing.Size(61, 13);
             this.lblİsim.TabIndex = 27;
+            this.lblİsim.Text = "IsmiSoyIsmi";
             this.lblİsim.Visible = false;
             // 
             // lblYetki
@@ -1005,8 +1006,9 @@
             this.lblYetki.AutoSize = true;
             this.lblYetki.Location = new System.Drawing.Point(981, 12);
             this.lblYetki.Name = "lblYetki";
-            this.lblYetki.Size = new System.Drawing.Size(0, 13);
+            this.lblYetki.Size = new System.Drawing.Size(38, 13);
             this.lblYetki.TabIndex = 28;
+            this.lblYetki.Text = "Yetkisi";
             this.lblYetki.Visible = false;
             // 
             // btnCikis

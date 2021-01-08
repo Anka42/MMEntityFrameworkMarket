@@ -251,12 +251,16 @@ namespace MMEntityFrameworkMarket
             {
                 connection.Open();
             }
-            SqlCommand command = new SqlCommand("Select Id, FirstName, LastName, UserName, Password, Authority from Users where UserName='"+ tbxUserNameLogin.Text+"'and Password='"+ tbxPasswordLogin.Text+"'",connection);
+            SqlCommand command = new SqlCommand("Select * from Users where UserName='" + tbxUserNameLogin.Text+"'and Password='"+ tbxPasswordLogin.Text+"'",connection);
             SqlDataReader reader = command.ExecuteReader();
+            
             if (reader.Read())
             {
-                lblİsim.Text = Convert.ToString(command.Parameters.AddWithValue("@FirstName + @LastName", user.FirstName + user.LastName));
-                lblYetki.Text = Convert.ToString(command.Parameters.AddWithValue("@Authority", user.Authority));
+                lblMesaj.Visible = true;
+                lblİsim.Visible = true;
+                lblYetki.Visible = true;
+                lblİsim.Text = (string)reader["FirstName"] +"  " + (string)reader["LastName"];
+                lblYetki.Text = (string)reader["Authority"];
                 if (lblYetki.Text == "Yetkili")
                 {
                     grpProduct.Visible = true;
@@ -271,6 +275,12 @@ namespace MMEntityFrameworkMarket
                 }
                 else if (lblYetki.Text == "Müşteri")
                 {
+                    lblMesaj.Visible = true;
+                    lblİsim.Visible = true;
+                    lblYetki.Visible = true;
+                    lblİsim.Text = (string)reader["FirstName"] + "  " + (string)reader["LastName"];
+                    lblYetki.Text = (string)reader["Authority"];
+
                     grpProduct.Visible = true;
                     grpUpdate.Visible = true;
 
