@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace MMEntityFrameworkMarket
 {
@@ -16,6 +17,7 @@ namespace MMEntityFrameworkMarket
     {
         ProductDal productDal = new ProductDal();
         UserDal userDal = new UserDal();
+        User user = new User();
         public Form1()
         {
             InitializeComponent();
@@ -23,7 +25,6 @@ namespace MMEntityFrameworkMarket
         
         private void Form1_Load(object sender, EventArgs e)
         {
-            
             using (EMarketContext context = new EMarketContext())
             {
                 dgwProduct.DataSource = context.Products.ToList();
@@ -90,7 +91,6 @@ namespace MMEntityFrameworkMarket
             tbxCategoryUpdate.Text = dgwProduct.CurrentRow.Cells[5].Value.ToString();
 
             grpPreview.Visible = true;
-            btnRemove.Visible = true;
 
             lblName.Text = dgwProduct.CurrentRow.Cells[1].Value.ToString();
             lblPrice.Text = dgwProduct.CurrentRow.Cells[2].Value.ToString();
@@ -158,27 +158,42 @@ namespace MMEntityFrameworkMarket
         private void btnRegister_Click(object sender, EventArgs e)
         {
             grpRegister.Visible = true;
+            grpLogin.Visible = false;
         }
 
         private void btnRegister2_Click(object sender, EventArgs e)
         {
+
             if (tbxPassword.Text == tbxPasswordRepeat.Text)
             {
-                pbxTik.Visible = true;
-                userDal.Ekle(new User
+                if (tbxPassword.Text.Length < 8)
                 {
-                    FirstName = tbxFirstName.Text,
-                    LastName = tbxLastName.Text,
-                    UserName = tbxUserName.Text,
-                    Password = tbxPassword.Text,
-                    Authority = cbxAuthority.Text
-                });
-                MessageBox.Show("Üye Olundu!");
+                    MessageBox.Show("Şifreniz En Az 8 Karakter Olmalı!");
+                }
+                else if (cbxAuthority.SelectedIndex == 0)
+                {
+                    MessageBox.Show("Hata Kodu: 0xMAMS6SS40345842 \n Lütfen Uygulama Yöneticileri İle İletişime Geçiniz.");
+                }
+                else
+                {
+                    pbxTik.Visible = true;
+                    userDal.Ekle(new User
+                    {
+                        FirstName = tbxFirstName.Text,
+                        LastName = tbxLastName.Text,
+                        UserName = tbxUserName.Text,
+                        Password = tbxPassword.Text,
+                        Authority = cbxAuthority.Text
+                    });
+                    MessageBox.Show("Üye Olundu!");
+                }
             }
             else
             {
                 MessageBox.Show("Şifreler Aynı Değil!");
             }
+            grpRegister.Visible = false;
+            grpLogin.Visible = true;
         }
 
         private void pbxGozKapali_Click(object sender, EventArgs e)
@@ -195,6 +210,81 @@ namespace MMEntityFrameworkMarket
             tbxPasswordRepeat.PasswordChar = '\0';
             pbxGoz.Visible = false;
             pbxGozKapali.Visible = true;
+        }
+
+        private void pbxGozAcik2_Click(object sender, EventArgs e)
+        {
+            tbxPasswordLogin.PasswordChar = '\0';
+            pbxGozAcik2.Visible = false;
+            pbxGozKapali2.Visible = true;
+        }
+
+        private void pbxGozKapali2_Click(object sender, EventArgs e)
+        {
+            tbxPasswordLogin.PasswordChar = '*';
+            pbxGozKapali2.Visible = false;
+            pbxGozAcik2.Visible = true;
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            grpLogin.Visible = true;
+            grpRegister.Visible = false;
+        }
+
+        private void lnkLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            grpLogin.Visible = true;
+            grpRegister.Visible = false;
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            grpRegister.Visible = true;
+            grpLogin.Visible = false;
+        }
+
+        private void btnLogin2_Click(object sender, EventArgs e)
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\MMEntityFrameworkMarket\MMEntityFrameworkMarket\App_Data\ProductMM.mdf;Integrated Security=True");
+            if (connection.State == ConnectionState.Closed)
+            {
+                connection.Open();
+            }
+            SqlCommand command = new SqlCommand("Select Id, FirstName, LastName, UserName, Password, Authority from Users where UserName='"+ tbxUserNameLogin.Text+"'and Password='"+ tbxPasswordLogin.Text+"'",connection);
+            SqlDataReader reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                lblİsim.Text = Convert.ToString(command.Parameters.AddWithValue("@FirstName + @LastName", user.FirstName + user.LastName));
+                lblYetki.Text = Convert.ToString(command.Parameters.AddWithValue("@Authority", user.Authority));
+                if (lblYetki.Text == "Yetkili")
+                {
+                    grpProduct.Visible = true;
+                    grpUpdate.Visible = true;
+                    grpLogin.Visible = false;
+
+                    btnClean.Visible = true;
+                    btnRemove.Visible = true;
+                    btnRegister.Visible = false;
+                    btnLogin.Visible = false;
+                    btnCikis.Visible = true;
+                }
+                else if (lblYetki.Text == "Müşteri")
+                {
+                    grpProduct.Visible = true;
+                    grpUpdate.Visible = true;
+
+                    btnClean.Visible = true;
+                    btnRemove.Visible = true;
+                    btnRegister.Visible = false;
+                    btnLogin.Visible = false;
+                    btnOrder.Visible = true;
+                    btnCikis.Visible = true;
+                }
+                
+            }
+            else { MessageBox.Show("Kullanıcı Adınız veya Şifreniz Hatalı!","Hata"); }
+            connection.Close();
         }
     }
 }

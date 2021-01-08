@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dgwProduct = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpProduct = new System.Windows.Forms.GroupBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.tbxCategory = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -42,7 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbxName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.grpUpdate = new System.Windows.Forms.GroupBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.tbxCategoryUpdate = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -85,6 +85,7 @@
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.grpRegister = new System.Windows.Forms.GroupBox();
+            this.pbxGozKapali = new System.Windows.Forms.PictureBox();
             this.pbxTik = new System.Windows.Forms.PictureBox();
             this.pbxGoz = new System.Windows.Forms.PictureBox();
             this.lnkLogin = new System.Windows.Forms.LinkLabel();
@@ -102,10 +103,24 @@
             this.cbxAuthority = new System.Windows.Forms.ComboBox();
             this.tbxFirstName = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.pbxGozKapali = new System.Windows.Forms.PictureBox();
+            this.grpLogin = new System.Windows.Forms.GroupBox();
+            this.tbxPasswordLogin = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.tbxUserNameLogin = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.btnLogin2 = new System.Windows.Forms.Button();
+            this.pbxGozKapali2 = new System.Windows.Forms.PictureBox();
+            this.pbxGozAcik2 = new System.Windows.Forms.PictureBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label30 = new System.Windows.Forms.Label();
+            this.lblMesaj = new System.Windows.Forms.Label();
+            this.lblİsim = new System.Windows.Forms.Label();
+            this.lblYetki = new System.Windows.Forms.Label();
+            this.btnCikis = new System.Windows.Forms.Button();
+            this.btnOrder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwProduct)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.grpProduct.SuspendLayout();
+            this.grpUpdate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxSearch)).BeginInit();
             this.grpPreview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -114,9 +129,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.grpRegister.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxGozKapali)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxTik)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxGoz)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxGozKapali)).BeginInit();
+            this.grpLogin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxGozKapali2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxGozAcik2)).BeginInit();
             this.SuspendLayout();
             // 
             // dgwProduct
@@ -129,25 +147,26 @@
             this.dgwProduct.TabIndex = 0;
             this.dgwProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwProduct_CellClick);
             // 
-            // groupBox1
+            // grpProduct
             // 
-            this.groupBox1.Controls.Add(this.btnAdd);
-            this.groupBox1.Controls.Add(this.tbxCategory);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.cbxStockAmountType);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.tbxStockAmount);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.tbxPrice);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.tbxName);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(13, 324);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(257, 277);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Bir Ürün Ekleyin";
+            this.grpProduct.Controls.Add(this.btnAdd);
+            this.grpProduct.Controls.Add(this.tbxCategory);
+            this.grpProduct.Controls.Add(this.label5);
+            this.grpProduct.Controls.Add(this.cbxStockAmountType);
+            this.grpProduct.Controls.Add(this.label4);
+            this.grpProduct.Controls.Add(this.tbxStockAmount);
+            this.grpProduct.Controls.Add(this.label3);
+            this.grpProduct.Controls.Add(this.tbxPrice);
+            this.grpProduct.Controls.Add(this.label2);
+            this.grpProduct.Controls.Add(this.tbxName);
+            this.grpProduct.Controls.Add(this.label1);
+            this.grpProduct.Location = new System.Drawing.Point(13, 324);
+            this.grpProduct.Name = "grpProduct";
+            this.grpProduct.Size = new System.Drawing.Size(257, 277);
+            this.grpProduct.TabIndex = 1;
+            this.grpProduct.TabStop = false;
+            this.grpProduct.Text = "Bir Ürün Ekleyin";
+            this.grpProduct.Visible = false;
             // 
             // btnAdd
             // 
@@ -245,25 +264,26 @@
             this.label1.Text = "İsim";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // groupBox2
+            // grpUpdate
             // 
-            this.groupBox2.Controls.Add(this.btnUpdate);
-            this.groupBox2.Controls.Add(this.tbxCategoryUpdate);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.cbxStockAmountTypeUpdate);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.tbxStockAmountUpdate);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.tbxPriceUpdate);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.tbxNameUpdate);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Location = new System.Drawing.Point(531, 324);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(257, 277);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Bir Ürün Güncelleyin";
+            this.grpUpdate.Controls.Add(this.btnUpdate);
+            this.grpUpdate.Controls.Add(this.tbxCategoryUpdate);
+            this.grpUpdate.Controls.Add(this.label6);
+            this.grpUpdate.Controls.Add(this.cbxStockAmountTypeUpdate);
+            this.grpUpdate.Controls.Add(this.label7);
+            this.grpUpdate.Controls.Add(this.tbxStockAmountUpdate);
+            this.grpUpdate.Controls.Add(this.label8);
+            this.grpUpdate.Controls.Add(this.tbxPriceUpdate);
+            this.grpUpdate.Controls.Add(this.label9);
+            this.grpUpdate.Controls.Add(this.tbxNameUpdate);
+            this.grpUpdate.Controls.Add(this.label10);
+            this.grpUpdate.Location = new System.Drawing.Point(531, 324);
+            this.grpUpdate.Name = "grpUpdate";
+            this.grpUpdate.Size = new System.Drawing.Size(257, 277);
+            this.grpUpdate.TabIndex = 2;
+            this.grpUpdate.TabStop = false;
+            this.grpUpdate.Text = "Bir Ürün Güncelleyin";
+            this.grpUpdate.Visible = false;
             // 
             // btnUpdate
             // 
@@ -641,6 +661,7 @@
             this.btnClean.TabIndex = 21;
             this.btnClean.Text = "Verileri Temizle";
             this.btnClean.UseVisualStyleBackColor = true;
+            this.btnClean.Visible = false;
             this.btnClean.Click += new System.EventHandler(this.btnClean_Click);
             // 
             // btnRegister
@@ -661,6 +682,7 @@
             this.btnLogin.TabIndex = 23;
             this.btnLogin.Text = "Giriş Yap";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // grpRegister
             // 
@@ -682,13 +704,25 @@
             this.grpRegister.Controls.Add(this.cbxAuthority);
             this.grpRegister.Controls.Add(this.tbxFirstName);
             this.grpRegister.Controls.Add(this.label13);
-            this.grpRegister.Location = new System.Drawing.Point(805, 13);
+            this.grpRegister.Location = new System.Drawing.Point(805, 33);
             this.grpRegister.Name = "grpRegister";
             this.grpRegister.Size = new System.Drawing.Size(336, 304);
             this.grpRegister.TabIndex = 24;
             this.grpRegister.TabStop = false;
             this.grpRegister.Text = "Üye Ol";
             this.grpRegister.Visible = false;
+            // 
+            // pbxGozKapali
+            // 
+            this.pbxGozKapali.Image = ((System.Drawing.Image)(resources.GetObject("pbxGozKapali.Image")));
+            this.pbxGozKapali.Location = new System.Drawing.Point(195, 124);
+            this.pbxGozKapali.Name = "pbxGozKapali";
+            this.pbxGozKapali.Size = new System.Drawing.Size(18, 14);
+            this.pbxGozKapali.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxGozKapali.TabIndex = 25;
+            this.pbxGozKapali.TabStop = false;
+            this.pbxGozKapali.Visible = false;
+            this.pbxGozKapali.Click += new System.EventHandler(this.pbxGozKapali_Click);
             // 
             // pbxTik
             // 
@@ -720,6 +754,7 @@
             this.lnkLogin.TabIndex = 25;
             this.lnkLogin.TabStop = true;
             this.lnkLogin.Text = "Giriş Yap";
+            this.lnkLogin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkLogin_LinkClicked);
             // 
             // label27
             // 
@@ -842,23 +877,169 @@
             this.label13.TabIndex = 0;
             this.label13.Text = "İsim : ";
             // 
-            // pbxGozKapali
+            // grpLogin
             // 
-            this.pbxGozKapali.Image = ((System.Drawing.Image)(resources.GetObject("pbxGozKapali.Image")));
-            this.pbxGozKapali.Location = new System.Drawing.Point(195, 124);
-            this.pbxGozKapali.Name = "pbxGozKapali";
-            this.pbxGozKapali.Size = new System.Drawing.Size(18, 14);
-            this.pbxGozKapali.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxGozKapali.TabIndex = 25;
-            this.pbxGozKapali.TabStop = false;
-            this.pbxGozKapali.Visible = false;
-            this.pbxGozKapali.Click += new System.EventHandler(this.pbxGozKapali_Click);
+            this.grpLogin.Controls.Add(this.linkLabel1);
+            this.grpLogin.Controls.Add(this.label30);
+            this.grpLogin.Controls.Add(this.pbxGozKapali2);
+            this.grpLogin.Controls.Add(this.pbxGozAcik2);
+            this.grpLogin.Controls.Add(this.btnLogin2);
+            this.grpLogin.Controls.Add(this.tbxPasswordLogin);
+            this.grpLogin.Controls.Add(this.label28);
+            this.grpLogin.Controls.Add(this.tbxUserNameLogin);
+            this.grpLogin.Controls.Add(this.label29);
+            this.grpLogin.Location = new System.Drawing.Point(805, 35);
+            this.grpLogin.Name = "grpLogin";
+            this.grpLogin.Size = new System.Drawing.Size(336, 303);
+            this.grpLogin.TabIndex = 25;
+            this.grpLogin.TabStop = false;
+            this.grpLogin.Text = "Giriş Yap";
+            this.grpLogin.Visible = false;
+            // 
+            // tbxPasswordLogin
+            // 
+            this.tbxPasswordLogin.Location = new System.Drawing.Point(89, 59);
+            this.tbxPasswordLogin.Name = "tbxPasswordLogin";
+            this.tbxPasswordLogin.PasswordChar = '*';
+            this.tbxPasswordLogin.Size = new System.Drawing.Size(100, 20);
+            this.tbxPasswordLogin.TabIndex = 12;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(16, 62);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(37, 13);
+            this.label28.TabIndex = 11;
+            this.label28.Text = "Şifre : ";
+            // 
+            // tbxUserNameLogin
+            // 
+            this.tbxUserNameLogin.Location = new System.Drawing.Point(89, 33);
+            this.tbxUserNameLogin.Name = "tbxUserNameLogin";
+            this.tbxUserNameLogin.Size = new System.Drawing.Size(100, 20);
+            this.tbxUserNameLogin.TabIndex = 10;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(16, 36);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(73, 13);
+            this.label29.TabIndex = 9;
+            this.label29.Text = "Kullanıcı Adı : ";
+            // 
+            // btnLogin2
+            // 
+            this.btnLogin2.Location = new System.Drawing.Point(89, 85);
+            this.btnLogin2.Name = "btnLogin2";
+            this.btnLogin2.Size = new System.Drawing.Size(100, 23);
+            this.btnLogin2.TabIndex = 13;
+            this.btnLogin2.Text = "Giriş Yap";
+            this.btnLogin2.UseVisualStyleBackColor = true;
+            this.btnLogin2.Click += new System.EventHandler(this.btnLogin2_Click);
+            // 
+            // pbxGozKapali2
+            // 
+            this.pbxGozKapali2.Image = ((System.Drawing.Image)(resources.GetObject("pbxGozKapali2.Image")));
+            this.pbxGozKapali2.Location = new System.Drawing.Point(199, 62);
+            this.pbxGozKapali2.Name = "pbxGozKapali2";
+            this.pbxGozKapali2.Size = new System.Drawing.Size(18, 14);
+            this.pbxGozKapali2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxGozKapali2.TabIndex = 26;
+            this.pbxGozKapali2.TabStop = false;
+            this.pbxGozKapali2.Visible = false;
+            this.pbxGozKapali2.Click += new System.EventHandler(this.pbxGozKapali2_Click);
+            // 
+            // pbxGozAcik2
+            // 
+            this.pbxGozAcik2.Image = ((System.Drawing.Image)(resources.GetObject("pbxGozAcik2.Image")));
+            this.pbxGozAcik2.Location = new System.Drawing.Point(200, 62);
+            this.pbxGozAcik2.Name = "pbxGozAcik2";
+            this.pbxGozAcik2.Size = new System.Drawing.Size(18, 14);
+            this.pbxGozAcik2.TabIndex = 27;
+            this.pbxGozAcik2.TabStop = false;
+            this.pbxGozAcik2.Click += new System.EventHandler(this.pbxGozAcik2_Click);
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(174, 124);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(39, 13);
+            this.linkLabel1.TabIndex = 28;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Üye Ol";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(65, 124);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(117, 13);
+            this.label30.TabIndex = 29;
+            this.label30.Text = "Üye Değil Misin? Şimdi ";
+            // 
+            // lblMesaj
+            // 
+            this.lblMesaj.AutoSize = true;
+            this.lblMesaj.Location = new System.Drawing.Point(805, 12);
+            this.lblMesaj.Name = "lblMesaj";
+            this.lblMesaj.Size = new System.Drawing.Size(60, 13);
+            this.lblMesaj.TabIndex = 26;
+            this.lblMesaj.Text = "Hoşgeldin, ";
+            this.lblMesaj.Visible = false;
+            // 
+            // lblİsim
+            // 
+            this.lblİsim.AutoSize = true;
+            this.lblİsim.Location = new System.Drawing.Point(867, 12);
+            this.lblİsim.Name = "lblİsim";
+            this.lblİsim.Size = new System.Drawing.Size(0, 13);
+            this.lblİsim.TabIndex = 27;
+            this.lblİsim.Visible = false;
+            // 
+            // lblYetki
+            // 
+            this.lblYetki.AutoSize = true;
+            this.lblYetki.Location = new System.Drawing.Point(981, 12);
+            this.lblYetki.Name = "lblYetki";
+            this.lblYetki.Size = new System.Drawing.Size(0, 13);
+            this.lblYetki.TabIndex = 28;
+            this.lblYetki.Visible = false;
+            // 
+            // btnCikis
+            // 
+            this.btnCikis.Location = new System.Drawing.Point(1053, 6);
+            this.btnCikis.Name = "btnCikis";
+            this.btnCikis.Size = new System.Drawing.Size(88, 23);
+            this.btnCikis.TabIndex = 29;
+            this.btnCikis.Text = "Oturumu Kapat";
+            this.btnCikis.UseVisualStyleBackColor = true;
+            this.btnCikis.Visible = false;
+            // 
+            // btnOrder
+            // 
+            this.btnOrder.Location = new System.Drawing.Point(634, 58);
+            this.btnOrder.Name = "btnOrder";
+            this.btnOrder.Size = new System.Drawing.Size(75, 23);
+            this.btnOrder.TabIndex = 30;
+            this.btnOrder.Text = "Sepete Ekle";
+            this.btnOrder.UseVisualStyleBackColor = true;
+            this.btnOrder.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1153, 697);
+            this.Controls.Add(this.btnOrder);
+            this.Controls.Add(this.btnCikis);
+            this.Controls.Add(this.lblYetki);
+            this.Controls.Add(this.lblİsim);
+            this.Controls.Add(this.grpLogin);
+            this.Controls.Add(this.lblMesaj);
             this.Controls.Add(this.grpRegister);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.btnRegister);
@@ -879,8 +1060,8 @@
             this.Controls.Add(this.tbxSearch);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grpUpdate);
+            this.Controls.Add(this.grpProduct);
             this.Controls.Add(this.dgwProduct);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -888,10 +1069,10 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.dgwProduct)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.grpProduct.ResumeLayout(false);
+            this.grpProduct.PerformLayout();
+            this.grpUpdate.ResumeLayout(false);
+            this.grpUpdate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxSearch)).EndInit();
             this.grpPreview.ResumeLayout(false);
             this.grpPreview.PerformLayout();
@@ -902,9 +1083,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.grpRegister.ResumeLayout(false);
             this.grpRegister.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxGozKapali)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxTik)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxGoz)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxGozKapali)).EndInit();
+            this.grpLogin.ResumeLayout(false);
+            this.grpLogin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxGozKapali2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxGozAcik2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -913,7 +1098,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgwProduct;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpProduct;
         private System.Windows.Forms.ComboBox cbxStockAmountType;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbxStockAmount;
@@ -925,7 +1110,7 @@
         private System.Windows.Forms.TextBox tbxCategory;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox grpUpdate;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.TextBox tbxCategoryUpdate;
         private System.Windows.Forms.Label label6;
@@ -986,6 +1171,21 @@
         private System.Windows.Forms.PictureBox pbxTik;
         private System.Windows.Forms.PictureBox pbxGoz;
         private System.Windows.Forms.PictureBox pbxGozKapali;
+        private System.Windows.Forms.GroupBox grpLogin;
+        private System.Windows.Forms.PictureBox pbxGozKapali2;
+        private System.Windows.Forms.PictureBox pbxGozAcik2;
+        private System.Windows.Forms.Button btnLogin2;
+        private System.Windows.Forms.TextBox tbxPasswordLogin;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox tbxUserNameLogin;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label lblMesaj;
+        private System.Windows.Forms.Label lblİsim;
+        private System.Windows.Forms.Label lblYetki;
+        private System.Windows.Forms.Button btnCikis;
+        private System.Windows.Forms.Button btnOrder;
     }
 }
 
