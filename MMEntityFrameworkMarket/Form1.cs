@@ -84,6 +84,7 @@ namespace MMEntityFrameworkMarket
 
         private void dgwProduct_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            
             tbxNameUpdate.Text = dgwProduct.CurrentRow.Cells[1].Value.ToString();
             tbxPriceUpdate.Text = dgwProduct.CurrentRow.Cells[2].Value.ToString();
             tbxStockAmountUpdate.Text = dgwProduct.CurrentRow.Cells[3].Value.ToString();
@@ -91,6 +92,10 @@ namespace MMEntityFrameworkMarket
             tbxCategoryUpdate.Text = dgwProduct.CurrentRow.Cells[5].Value.ToString();
 
             grpPreview.Visible = true;
+            if (lblYetki.Text == "Yetkili")
+            {
+                btnRemove.Visible = true;
+            }
 
             lblName.Text = dgwProduct.CurrentRow.Cells[1].Value.ToString();
             lblPrice.Text = dgwProduct.CurrentRow.Cells[2].Value.ToString();
@@ -159,6 +164,8 @@ namespace MMEntityFrameworkMarket
         {
             grpRegister.Visible = true;
             grpLogin.Visible = false;
+
+            
         }
 
         private void btnRegister2_Click(object sender, EventArgs e)
@@ -192,8 +199,21 @@ namespace MMEntityFrameworkMarket
             {
                 MessageBox.Show("Şifreler Aynı Değil!");
             }
+
+
+            tbxFirstName.Text = "";
+            tbxLastName.Text = "";
+            tbxUserName.Text = "";
+            tbxPassword.Text = "";
+            tbxPasswordRepeat.Text = "";
+            pbxGozKapali.Visible = false;
+            cbxAuthority.SelectedItem = null;
+            pbxTik.Visible = false;
+
             grpRegister.Visible = false;
             grpLogin.Visible = true;
+
+            
         }
 
         private void pbxGozKapali_Click(object sender, EventArgs e)
@@ -228,8 +248,9 @@ namespace MMEntityFrameworkMarket
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            grpLogin.Visible = true;
             grpRegister.Visible = false;
+            grpLogin.Visible = true;
+            
         }
 
         private void lnkLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -295,6 +316,30 @@ namespace MMEntityFrameworkMarket
             }
             else { MessageBox.Show("Kullanıcı Adınız veya Şifreniz Hatalı!","Hata"); }
             connection.Close();
+            grpLogin.Visible = false;
+            grpRegister.Visible = false;
+        }
+
+        private void btnCikis_Click(object sender, EventArgs e)
+        {
+            lblYetki.Text = " ";
+            lblİsim.Visible = false;
+            lblMesaj.Visible = false;
+            grpLogin.Visible = false;
+            grpRegister.Visible = false;
+            btnClean.Visible = false;
+            grpProduct.Visible = false;
+            grpUpdate.Visible = false;
+            btnRemove.Visible = false;
+            btnOrder.Visible = false;
+
+            btnRegister.Visible = true;
+            btnLogin.Visible = true;
+
+            tbxUserNameLogin.Text = "";
+            tbxPasswordLogin.Text = "";
+
+            btnCikis.Visible = false;
         }
     }
 }

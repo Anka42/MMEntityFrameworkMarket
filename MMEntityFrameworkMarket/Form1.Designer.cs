@@ -611,7 +611,7 @@
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(219, 13);
             this.label25.TabIndex = 16;
-            this.label25.Text = "All Rights Reserved at MM © Copyright 2020";
+            this.label25.Text = "All Rights Reserved at MM © Copyright 2021";
             // 
             // pictureBox2
             // 
@@ -1020,6 +1020,7 @@
             this.btnCikis.Text = "Oturumu Kapat";
             this.btnCikis.UseVisualStyleBackColor = true;
             this.btnCikis.Visible = false;
+            this.btnCikis.Click += new System.EventHandler(this.btnCikis_Click);
             // 
             // btnOrder
             // 
