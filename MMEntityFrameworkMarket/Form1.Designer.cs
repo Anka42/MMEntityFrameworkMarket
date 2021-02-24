@@ -118,6 +118,22 @@
             this.lblYetki = new System.Windows.Forms.Label();
             this.btnCikis = new System.Windows.Forms.Button();
             this.btnOrder = new System.Windows.Forms.Button();
+            this.grpSiparis = new System.Windows.Forms.GroupBox();
+            this.grpSepet = new System.Windows.Forms.GroupBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.pbxEksi = new System.Windows.Forms.PictureBox();
+            this.pbxArti = new System.Windows.Forms.PictureBox();
+            this.btnSend = new System.Windows.Forms.Button();
+            this.lblSepetName = new System.Windows.Forms.Label();
+            this.lblSepetPrice = new System.Windows.Forms.Label();
+            this.lblSepetStockAmount = new System.Windows.Forms.Label();
+            this.lblToplamFiyat = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.lblSepetStockAmountType = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgwProduct)).BeginInit();
             this.grpProduct.SuspendLayout();
             this.grpUpdate.SuspendLayout();
@@ -135,6 +151,9 @@
             this.grpLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxGozKapali2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxGozAcik2)).BeginInit();
+            this.grpSepet.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxEksi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxArti)).BeginInit();
             this.SuspendLayout();
             // 
             // dgwProduct
@@ -1024,19 +1043,184 @@
             // 
             // btnOrder
             // 
-            this.btnOrder.Location = new System.Drawing.Point(634, 58);
+            this.btnOrder.Location = new System.Drawing.Point(13, 59);
             this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(75, 23);
+            this.btnOrder.Size = new System.Drawing.Size(105, 23);
             this.btnOrder.TabIndex = 30;
             this.btnOrder.Text = "Sepete Ekle";
             this.btnOrder.UseVisualStyleBackColor = true;
             this.btnOrder.Visible = false;
+            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
+            // 
+            // grpSiparis
+            // 
+            this.grpSiparis.Location = new System.Drawing.Point(808, 343);
+            this.grpSiparis.Name = "grpSiparis";
+            this.grpSiparis.Size = new System.Drawing.Size(333, 254);
+            this.grpSiparis.TabIndex = 31;
+            this.grpSiparis.TabStop = false;
+            this.grpSiparis.Text = "Sipariş";
+            this.grpSiparis.Visible = false;
+            // 
+            // grpSepet
+            // 
+            this.grpSepet.Controls.Add(this.label33);
+            this.grpSepet.Controls.Add(this.label32);
+            this.grpSepet.Controls.Add(this.pbxEksi);
+            this.grpSepet.Controls.Add(this.pbxArti);
+            this.grpSepet.Controls.Add(this.btnSend);
+            this.grpSepet.Controls.Add(this.lblSepetName);
+            this.grpSepet.Controls.Add(this.lblSepetPrice);
+            this.grpSepet.Controls.Add(this.lblSepetStockAmount);
+            this.grpSepet.Controls.Add(this.lblToplamFiyat);
+            this.grpSepet.Controls.Add(this.label31);
+            this.grpSepet.Controls.Add(this.lblSepetStockAmountType);
+            this.grpSepet.Controls.Add(this.label57);
+            this.grpSepet.Controls.Add(this.label56);
+            this.grpSepet.Controls.Add(this.label55);
+            this.grpSepet.Location = new System.Drawing.Point(805, 38);
+            this.grpSepet.Name = "grpSepet";
+            this.grpSepet.Size = new System.Drawing.Size(336, 300);
+            this.grpSepet.TabIndex = 32;
+            this.grpSepet.TabStop = false;
+            this.grpSepet.Text = "Sepet";
+            this.grpSepet.Visible = false;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(141, 69);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(13, 13);
+            this.label33.TabIndex = 13;
+            this.label33.Text = "₺";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(141, 157);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(13, 13);
+            this.label32.TabIndex = 12;
+            this.label32.Text = "₺";
+            // 
+            // pbxEksi
+            // 
+            this.pbxEksi.Image = ((System.Drawing.Image)(resources.GetObject("pbxEksi.Image")));
+            this.pbxEksi.Location = new System.Drawing.Point(82, 108);
+            this.pbxEksi.Name = "pbxEksi";
+            this.pbxEksi.Size = new System.Drawing.Size(33, 20);
+            this.pbxEksi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxEksi.TabIndex = 11;
+            this.pbxEksi.TabStop = false;
+            // 
+            // pbxArti
+            // 
+            this.pbxArti.Image = ((System.Drawing.Image)(resources.GetObject("pbxArti.Image")));
+            this.pbxArti.Location = new System.Drawing.Point(162, 108);
+            this.pbxArti.Name = "pbxArti";
+            this.pbxArti.Size = new System.Drawing.Size(20, 20);
+            this.pbxArti.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxArti.TabIndex = 10;
+            this.pbxArti.TabStop = false;
+            this.pbxArti.Click += new System.EventHandler(this.pbxArti_Click);
+            // 
+            // btnSend
+            // 
+            this.btnSend.Location = new System.Drawing.Point(81, 190);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(75, 23);
+            this.btnSend.TabIndex = 9;
+            this.btnSend.Text = "Gönder";
+            this.btnSend.UseVisualStyleBackColor = true;
+            // 
+            // lblSepetName
+            // 
+            this.lblSepetName.AutoSize = true;
+            this.lblSepetName.Location = new System.Drawing.Point(70, 30);
+            this.lblSepetName.Name = "lblSepetName";
+            this.lblSepetName.Size = new System.Drawing.Size(41, 13);
+            this.lblSepetName.TabIndex = 8;
+            this.lblSepetName.Text = "label32";
+            // 
+            // lblSepetPrice
+            // 
+            this.lblSepetPrice.AutoSize = true;
+            this.lblSepetPrice.Location = new System.Drawing.Point(78, 69);
+            this.lblSepetPrice.Name = "lblSepetPrice";
+            this.lblSepetPrice.Size = new System.Drawing.Size(41, 13);
+            this.lblSepetPrice.TabIndex = 7;
+            this.lblSepetPrice.Text = "label32";
+            // 
+            // lblSepetStockAmount
+            // 
+            this.lblSepetStockAmount.AutoSize = true;
+            this.lblSepetStockAmount.Location = new System.Drawing.Point(125, 112);
+            this.lblSepetStockAmount.Name = "lblSepetStockAmount";
+            this.lblSepetStockAmount.Size = new System.Drawing.Size(0, 13);
+            this.lblSepetStockAmount.TabIndex = 6;
+            // 
+            // lblToplamFiyat
+            // 
+            this.lblToplamFiyat.AutoSize = true;
+            this.lblToplamFiyat.Location = new System.Drawing.Point(82, 157);
+            this.lblToplamFiyat.Name = "lblToplamFiyat";
+            this.lblToplamFiyat.Size = new System.Drawing.Size(41, 13);
+            this.lblToplamFiyat.TabIndex = 5;
+            this.lblToplamFiyat.Text = "label32";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(7, 156);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(76, 13);
+            this.label31.TabIndex = 4;
+            this.label31.Text = "Toplam Fiyat : ";
+            // 
+            // lblSepetStockAmountType
+            // 
+            this.lblSepetStockAmountType.AutoSize = true;
+            this.lblSepetStockAmountType.Location = new System.Drawing.Point(194, 111);
+            this.lblSepetStockAmountType.Name = "lblSepetStockAmountType";
+            this.lblSepetStockAmountType.Size = new System.Drawing.Size(41, 13);
+            this.lblSepetStockAmountType.TabIndex = 3;
+            this.lblSepetStockAmountType.Text = "label34";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(6, 109);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(77, 13);
+            this.label57.TabIndex = 2;
+            this.label57.Text = "Sipariş Sayısı : ";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(6, 69);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(66, 13);
+            this.label56.TabIndex = 1;
+            this.label56.Text = "Ürün Fiyatı : ";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(7, 30);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(57, 13);
+            this.label55.TabIndex = 0;
+            this.label55.Text = "Ürün Adı : ";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1153, 697);
+            this.Controls.Add(this.grpSepet);
+            this.Controls.Add(this.grpSiparis);
             this.Controls.Add(this.btnOrder);
             this.Controls.Add(this.btnCikis);
             this.Controls.Add(this.lblYetki);
@@ -1066,6 +1250,7 @@
             this.Controls.Add(this.grpUpdate);
             this.Controls.Add(this.grpProduct);
             this.Controls.Add(this.dgwProduct);
+            this.Location = new System.Drawing.Point(-30, 0);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Entity Framework Market";
@@ -1093,6 +1278,10 @@
             this.grpLogin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxGozKapali2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxGozAcik2)).EndInit();
+            this.grpSepet.ResumeLayout(false);
+            this.grpSepet.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxEksi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxArti)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1189,6 +1378,22 @@
         private System.Windows.Forms.Label lblYetki;
         private System.Windows.Forms.Button btnCikis;
         private System.Windows.Forms.Button btnOrder;
+        private System.Windows.Forms.GroupBox grpSiparis;
+        private System.Windows.Forms.GroupBox grpSepet;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.Label lblSepetStockAmountType;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Label lblSepetName;
+        private System.Windows.Forms.Label lblSepetPrice;
+        private System.Windows.Forms.Label lblSepetStockAmount;
+        private System.Windows.Forms.Label lblToplamFiyat;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.PictureBox pbxEksi;
+        private System.Windows.Forms.PictureBox pbxArti;
+        private System.Windows.Forms.Button btnSend;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label32;
     }
 }
 

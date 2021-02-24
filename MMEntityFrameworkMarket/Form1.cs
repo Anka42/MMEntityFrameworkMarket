@@ -25,6 +25,7 @@ namespace MMEntityFrameworkMarket
         
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.Width = 817;
             using (EMarketContext context = new EMarketContext())
             {
                 dgwProduct.DataSource = context.Products.ToList();
@@ -99,12 +100,10 @@ namespace MMEntityFrameworkMarket
 
             lblName.Text = dgwProduct.CurrentRow.Cells[1].Value.ToString();
             lblPrice.Text = dgwProduct.CurrentRow.Cells[2].Value.ToString();
-            
-
             lblStockAmount.Text = dgwProduct.CurrentRow.Cells[3].Value.ToString();
             lblStockAmountType.Text = dgwProduct.CurrentRow.Cells[4].Value.ToString();
-
             lblCategory.Text = dgwProduct.CurrentRow.Cells[5].Value.ToString();
+            
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
@@ -158,14 +157,21 @@ namespace MMEntityFrameworkMarket
             tbxStockAmountUpdate.Text = "";
             cbxStockAmountTypeUpdate.SelectedItem = null;
             tbxCategoryUpdate.Text = "";
+
+            lblSepetName.Text = "";
+            lblSepetPrice.Text = "";
+            lblSepetStockAmount.Text = "";
+            lblSepetStockAmountType.Text = "";
+            lblToplamFiyat.Text = "";
+            grpSepet.Visible = false;
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
             grpRegister.Visible = true;
             grpLogin.Visible = false;
+            this.Width = 1169 ;
 
-            
         }
 
         private void btnRegister2_Click(object sender, EventArgs e)
@@ -250,7 +256,8 @@ namespace MMEntityFrameworkMarket
         {
             grpRegister.Visible = false;
             grpLogin.Visible = true;
-            
+            this.Width = 1169;
+
         }
 
         private void lnkLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -294,19 +301,15 @@ namespace MMEntityFrameworkMarket
                     btnLogin.Visible = false;
                     btnCikis.Visible = true;
                 }
-                else if (lblYetki.Text == "Müşteri")
+                else if (lblYetki.Text == "Müsteri")
                 {
                     lblMesaj.Visible = true;
                     lblİsim.Visible = true;
                     lblYetki.Visible = true;
-                    lblİsim.Text = (string)reader["FirstName"] + "  " + (string)reader["LastName"];
-                    lblYetki.Text = (string)reader["Authority"];
-
-                    grpProduct.Visible = true;
-                    grpUpdate.Visible = true;
-
+                    grpProduct.Visible = false;
+                    grpUpdate.Visible = false;
                     btnClean.Visible = true;
-                    btnRemove.Visible = true;
+                    btnRemove.Visible = false;
                     btnRegister.Visible = false;
                     btnLogin.Visible = false;
                     btnOrder.Visible = true;
@@ -340,6 +343,26 @@ namespace MMEntityFrameworkMarket
             tbxPasswordLogin.Text = "";
 
             btnCikis.Visible = false;
+            this.Width = 817;
+        }
+
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+            grpSepet.Visible = true;
+            lblSepetName.Text = dgwProduct.CurrentRow.Cells[1].Value.ToString();
+            lblSepetPrice.Text = dgwProduct.CurrentRow.Cells[2].Value.ToString();
+            lblSepetStockAmount.Text = Convert.ToString(1);
+            lblSepetStockAmountType.Text = dgwProduct.CurrentRow.Cells[4].Value.ToString();
+            lblToplamFiyat.Text = dgwProduct.CurrentRow.Cells[2].Value.ToString();
+        }
+
+        private void pbxArti_Click(object sender, EventArgs e)
+        {
+            int a = Convert.ToInt32(lblSepetStockAmount.Text) + 1;
+            lblSepetStockAmount.Text = Convert.ToString(a);
+
+            int b = Convert.ToInt32(lblSepetPrice.Text) + 1;
+            lblToplamFiyat.Text = Convert.ToString(b);
         }
     }
 }
