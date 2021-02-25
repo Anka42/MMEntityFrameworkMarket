@@ -1113,6 +1113,7 @@
             this.pbxEksi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxEksi.TabIndex = 11;
             this.pbxEksi.TabStop = false;
+            this.pbxEksi.Click += new System.EventHandler(this.pbxEksi_Click);
             // 
             // pbxArti
             // 

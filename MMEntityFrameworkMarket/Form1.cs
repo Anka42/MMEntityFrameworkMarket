@@ -344,6 +344,13 @@ namespace MMEntityFrameworkMarket
 
             btnCikis.Visible = false;
             this.Width = 817;
+            //Sepet temizleme
+            lblSepetName.Text = "";
+            lblSepetPrice.Text = "";
+            lblSepetStockAmount.Text = "";
+            lblSepetStockAmountType.Text = "";
+            lblToplamFiyat.Text = "";
+            grpSepet.Visible = false;
         }
 
         private void btnOrder_Click(object sender, EventArgs e)
@@ -358,11 +365,34 @@ namespace MMEntityFrameworkMarket
 
         private void pbxArti_Click(object sender, EventArgs e)
         {
-            int a = Convert.ToInt32(lblSepetStockAmount.Text) + 1;
-            lblSepetStockAmount.Text = Convert.ToString(a);
+            if (lblSepetName.Text == dgwProduct.CurrentRow.Cells[1].Value.ToString())
+            {
+                if (Convert.ToInt32(dgwProduct.CurrentRow.Cells[3].Value.ToString()) > Convert.ToInt32(lblSepetStockAmount.Text))
+                {
+                    int a = Convert.ToInt32(lblSepetStockAmount.Text) + 1;
+                    lblSepetStockAmount.Text = Convert.ToString(a);
 
-            int b = Convert.ToInt32(lblSepetPrice.Text) + 1;
-            lblToplamFiyat.Text = Convert.ToString(b);
+                    decimal b = Convert.ToDecimal(lblSepetPrice.Text) * Convert.ToInt32(lblSepetStockAmount.Text);
+                    lblToplamFiyat.Text = Convert.ToString(b);
+                }
+                else { MessageBox.Show("Stok sınırına ulaşıldı! Lütfen geçerli stok sayısı kadar sipariş veriniz. ", "Uyarı"); }
+            }
+        }
+
+        private void pbxEksi_Click(object sender, EventArgs e)
+        {
+            if (lblSepetName.Text == dgwProduct.CurrentRow.Cells[1].Value.ToString())
+            {
+                if (0 < Convert.ToInt32(lblSepetStockAmount.Text))
+                {
+                    int a = Convert.ToInt32(lblSepetStockAmount.Text) - 1;
+                    lblSepetStockAmount.Text = Convert.ToString(a);
+
+                    decimal b = Convert.ToDecimal(lblSepetPrice.Text) * Convert.ToInt32(lblSepetStockAmount.Text);
+                    lblToplamFiyat.Text = Convert.ToString(b);
+                }
+                else{ MessageBox.Show("Geçersiz stok! Lütfen geçerli stok sayısı kadar sipariş veriniz. ", "Uyarı"); }
+            }
         }
     }
 }
