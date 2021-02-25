@@ -119,6 +119,15 @@
             this.btnCikis = new System.Windows.Forms.Button();
             this.btnOrder = new System.Windows.Forms.Button();
             this.grpSiparis = new System.Windows.Forms.GroupBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.lblSiparisTutar = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.btnGetOrder = new System.Windows.Forms.Button();
+            this.dgwOrder = new System.Windows.Forms.DataGridView();
+            this.OrderName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpSepet = new System.Windows.Forms.GroupBox();
             this.label33 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
@@ -151,6 +160,8 @@
             this.grpLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxGozKapali2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxGozAcik2)).BeginInit();
+            this.grpSiparis.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwOrder)).BeginInit();
             this.grpSepet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxEksi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArti)).BeginInit();
@@ -1054,6 +1065,12 @@
             // 
             // grpSiparis
             // 
+            this.grpSiparis.Controls.Add(this.label37);
+            this.grpSiparis.Controls.Add(this.lblSiparisTutar);
+            this.grpSiparis.Controls.Add(this.label35);
+            this.grpSiparis.Controls.Add(this.label34);
+            this.grpSiparis.Controls.Add(this.btnGetOrder);
+            this.grpSiparis.Controls.Add(this.dgwOrder);
             this.grpSiparis.Location = new System.Drawing.Point(808, 343);
             this.grpSiparis.Name = "grpSiparis";
             this.grpSiparis.Size = new System.Drawing.Size(333, 254);
@@ -1061,6 +1078,82 @@
             this.grpSiparis.TabStop = false;
             this.grpSiparis.Text = "Sipariş";
             this.grpSiparis.Visible = false;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label37.Location = new System.Drawing.Point(7, 235);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(140, 13);
+            this.label37.TabIndex = 15;
+            this.label37.Text = "*Fiyatlara KDV Dahildir.";
+            // 
+            // lblSiparisTutar
+            // 
+            this.lblSiparisTutar.AutoSize = true;
+            this.lblSiparisTutar.Location = new System.Drawing.Point(89, 194);
+            this.lblSiparisTutar.Name = "lblSiparisTutar";
+            this.lblSiparisTutar.Size = new System.Drawing.Size(13, 13);
+            this.lblSiparisTutar.TabIndex = 14;
+            this.lblSiparisTutar.Text = "0";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(140, 194);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(13, 13);
+            this.label35.TabIndex = 13;
+            this.label35.Text = "₺";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(9, 194);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(75, 13);
+            this.label34.TabIndex = 2;
+            this.label34.Text = "Toplam tutar : ";
+            // 
+            // btnGetOrder
+            // 
+            this.btnGetOrder.Location = new System.Drawing.Point(245, 194);
+            this.btnGetOrder.Name = "btnGetOrder";
+            this.btnGetOrder.Size = new System.Drawing.Size(81, 23);
+            this.btnGetOrder.TabIndex = 1;
+            this.btnGetOrder.Text = "Sipariş Ver";
+            this.btnGetOrder.UseVisualStyleBackColor = true;
+            // 
+            // dgwOrder
+            // 
+            this.dgwOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.OrderName,
+            this.OrderAmount,
+            this.OrderPrice});
+            this.dgwOrder.Location = new System.Drawing.Point(7, 37);
+            this.dgwOrder.Name = "dgwOrder";
+            this.dgwOrder.Size = new System.Drawing.Size(320, 150);
+            this.dgwOrder.TabIndex = 0;
+            // 
+            // OrderName
+            // 
+            this.OrderName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.OrderName.HeaderText = "Siparis";
+            this.OrderName.Name = "OrderName";
+            // 
+            // OrderAmount
+            // 
+            this.OrderAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.OrderAmount.HeaderText = "SiparisAdet";
+            this.OrderAmount.Name = "OrderAmount";
+            // 
+            // OrderPrice
+            // 
+            this.OrderPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.OrderPrice.HeaderText = "SiparisFiyat";
+            this.OrderPrice.Name = "OrderPrice";
             // 
             // grpSepet
             // 
@@ -1134,6 +1227,7 @@
             this.btnSend.TabIndex = 9;
             this.btnSend.Text = "Gönder";
             this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
             // lblSepetName
             // 
@@ -1279,6 +1373,9 @@
             this.grpLogin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxGozKapali2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxGozAcik2)).EndInit();
+            this.grpSiparis.ResumeLayout(false);
+            this.grpSiparis.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwOrder)).EndInit();
             this.grpSepet.ResumeLayout(false);
             this.grpSepet.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxEksi)).EndInit();
@@ -1395,6 +1492,15 @@
         private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.DataGridView dgwOrder;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderPrice;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label lblSiparisTutar;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Button btnGetOrder;
     }
 }
 

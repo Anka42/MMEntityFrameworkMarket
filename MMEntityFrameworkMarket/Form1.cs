@@ -16,6 +16,7 @@ namespace MMEntityFrameworkMarket
     public partial class Form1 : Form
     {
         ProductDal productDal = new ProductDal();
+        OrderDal orderDal = new OrderDal();
         UserDal userDal = new UserDal();
         User user = new User();
         public Form1()
@@ -394,5 +395,39 @@ namespace MMEntityFrameworkMarket
                 else{ MessageBox.Show("Geçersiz stok! Lütfen geçerli stok sayısı kadar sipariş veriniz. ", "Uyarı"); }
             }
         }
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            orderDal.Ekle(new Order
+            {
+                OrderName = lblSepetName.Text,
+                OrderPrice = Convert.ToDecimal(lblToplamFiyat.Text),
+                OrderAmount = Convert.ToInt32(lblSepetStockAmount.Text),
+                OrderStatus = "Siparişe Hazır !"
+            });
+            productDal.Guncelle(new Product
+            {
+                Id = Convert.ToInt32(dgwProduct.CurrentRow.Cells[0].Value),
+                Name = tbxNameUpdate.Text,
+                Price = Convert.ToDecimal(tbxPriceUpdate.Text),
+                StockAmount = Convert.ToInt32(dgwProduct.CurrentRow.Cells[3].Value) - Convert.ToInt32(lblSepetStockAmount.Text),
+                StockAmountType = cbxStockAmountTypeUpdate.Text,
+                Category = tbxCategoryUpdate.Text
+            });
+            dgwProduct.DataSource = productDal.Listeleme();
+            MessageBox.Show("Siparişe Hazır !", "Entity Framework Market");
+            grpSiparis.Visible = true;
+            dgwOrder.DataSource = orderDal.Listeleme();
+
+            lblSiparisTutar.Text = Convert.ToString(Convert.ToDecimal(lblToplamFiyat.Text) + Convert.ToDecimal(lblSiparisTutar.Text));
+
+            
+            lblSepetName.Text = "";
+            lblSepetPrice.Text = "";
+            lblSepetStockAmount.Text = "";
+            lblSepetStockAmountType.Text = "";
+            lblToplamFiyat.Text = "";
+        }
+
     }
 }
