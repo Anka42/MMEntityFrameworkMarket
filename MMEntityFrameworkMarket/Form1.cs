@@ -23,7 +23,7 @@ namespace MMEntityFrameworkMarket
         {
             InitializeComponent();
         }
-        
+
         private void Form1_Load(object sender, EventArgs e)
         {
             this.Width = 817;
@@ -46,15 +46,16 @@ namespace MMEntityFrameworkMarket
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            productDal.Ekle(new Product {
+            productDal.Ekle(new Product
+            {
                 Name = tbxName.Text,
                 Price = Convert.ToDecimal(tbxPrice.Text),
-                StockAmount = Convert.ToDecimal(tbxStockAmount.Text),
+                StockAmount = Convert.ToInt32(tbxStockAmount.Text),
                 StockAmountType = cbxStockAmountType.Text,
                 Category = tbxCategory.Text
             });
             dgwProduct.DataSource = productDal.Listeleme();
-            MessageBox.Show("Ürün Eklendi!","Entity Framework Market");
+            MessageBox.Show("Ürün Eklendi!", "Entity Framework Market");
 
             tbxName.Text = "";
             tbxPrice.Text = "";
@@ -65,16 +66,17 @@ namespace MMEntityFrameworkMarket
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            productDal.Guncelle(new Product {
+            productDal.Guncelle(new Product
+            {
                 Id = Convert.ToInt32(dgwProduct.CurrentRow.Cells[0].Value),
                 Name = tbxNameUpdate.Text,
                 Price = Convert.ToDecimal(tbxPriceUpdate.Text),
-                StockAmount = Convert.ToDecimal(tbxStockAmountUpdate.Text),
+                StockAmount = Convert.ToInt32(tbxStockAmountUpdate.Text),
                 StockAmountType = cbxStockAmountTypeUpdate.Text,
                 Category = tbxCategoryUpdate.Text
             });
             dgwProduct.DataSource = productDal.Listeleme();
-            MessageBox.Show("Ürün Güncellendi !","Entity Framework Market");
+            MessageBox.Show("Ürün Güncellendi !", "Entity Framework Market");
 
 
             tbxNameUpdate.Text = "";
@@ -86,7 +88,7 @@ namespace MMEntityFrameworkMarket
 
         private void dgwProduct_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
             tbxNameUpdate.Text = dgwProduct.CurrentRow.Cells[1].Value.ToString();
             tbxPriceUpdate.Text = dgwProduct.CurrentRow.Cells[2].Value.ToString();
             tbxStockAmountUpdate.Text = dgwProduct.CurrentRow.Cells[3].Value.ToString();
@@ -104,16 +106,17 @@ namespace MMEntityFrameworkMarket
             lblStockAmount.Text = dgwProduct.CurrentRow.Cells[3].Value.ToString();
             lblStockAmountType.Text = dgwProduct.CurrentRow.Cells[4].Value.ToString();
             lblCategory.Text = dgwProduct.CurrentRow.Cells[5].Value.ToString();
-            
+
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            productDal.Sil(new Product {
+            productDal.Sil(new Product
+            {
                 Id = Convert.ToInt32(dgwProduct.CurrentRow.Cells[0].Value)
             });
             dgwProduct.DataSource = productDal.Listeleme();
-            MessageBox.Show("Ürün Silindi !","Entity Framework Market");
+            MessageBox.Show("Ürün Silindi !", "Entity Framework Market");
         }
 
         private void tbxSearch_TextChanged(object sender, EventArgs e)
@@ -126,7 +129,7 @@ namespace MMEntityFrameworkMarket
                     dgwProduct.DataSource = productDal.Listeleme().Where(p => p.Name.ToLower(new CultureInfo("tr-TR", false)).Contains(key)).ToList();
                 }
             }
-            else if(cbxSearch.SelectedIndex == 1)
+            else if (cbxSearch.SelectedIndex == 1)
             {
                 SearchProducts(tbxSearch.Text);
                 void SearchProducts(string key)
@@ -171,7 +174,7 @@ namespace MMEntityFrameworkMarket
         {
             grpRegister.Visible = true;
             grpLogin.Visible = false;
-            this.Width = 1169 ;
+            this.Width = 1169;
 
         }
 
@@ -220,7 +223,7 @@ namespace MMEntityFrameworkMarket
             grpRegister.Visible = false;
             grpLogin.Visible = true;
 
-            
+
         }
 
         private void pbxGozKapali_Click(object sender, EventArgs e)
@@ -280,15 +283,15 @@ namespace MMEntityFrameworkMarket
             {
                 connection.Open();
             }
-            SqlCommand command = new SqlCommand("Select * from Users where UserName='" + tbxUserNameLogin.Text+"'and Password='"+ tbxPasswordLogin.Text+"'",connection);
+            SqlCommand command = new SqlCommand("Select * from Users where UserName='" + tbxUserNameLogin.Text + "'and Password='" + tbxPasswordLogin.Text + "'", connection);
             SqlDataReader reader = command.ExecuteReader();
-            
+
             if (reader.Read())
             {
                 lblMesaj.Visible = true;
                 lblİsim.Visible = true;
                 lblYetki.Visible = true;
-                lblİsim.Text = (string)reader["FirstName"] +"  " + (string)reader["LastName"];
+                lblİsim.Text = (string)reader["FirstName"] + "  " + (string)reader["LastName"];
                 lblYetki.Text = (string)reader["Authority"];
                 if (lblYetki.Text == "Yetkili")
                 {
@@ -316,9 +319,9 @@ namespace MMEntityFrameworkMarket
                     btnOrder.Visible = true;
                     btnCikis.Visible = true;
                 }
-                
+
             }
-            else { MessageBox.Show("Kullanıcı Adınız veya Şifreniz Hatalı!","Hata"); }
+            else { MessageBox.Show("Kullanıcı Adınız veya Şifreniz Hatalı!", "Hata"); }
             connection.Close();
             grpLogin.Visible = false;
             grpRegister.Visible = false;
@@ -392,28 +395,23 @@ namespace MMEntityFrameworkMarket
                     decimal b = Convert.ToDecimal(lblSepetPrice.Text) * Convert.ToInt32(lblSepetStockAmount.Text);
                     lblToplamFiyat.Text = Convert.ToString(b);
                 }
-                else{ MessageBox.Show("Geçersiz stok! Lütfen geçerli stok sayısı kadar sipariş veriniz. ", "Uyarı"); }
+                else { MessageBox.Show("Geçersiz stok! Lütfen geçerli stok sayısı kadar sipariş veriniz. ", "Uyarı"); }
             }
         }
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            orderDal.Ekle(new Order
-            {
-                OrderName = lblSepetName.Text,
-                OrderPrice = Convert.ToDecimal(lblToplamFiyat.Text),
-                OrderAmount = Convert.ToInt32(lblSepetStockAmount.Text),
-                OrderStatus = "Siparişe Hazır !"
-            });
-            productDal.Guncelle(new Product
-            {
-                Id = Convert.ToInt32(dgwProduct.CurrentRow.Cells[0].Value),
-                Name = tbxNameUpdate.Text,
-                Price = Convert.ToDecimal(tbxPriceUpdate.Text),
-                StockAmount = Convert.ToInt32(dgwProduct.CurrentRow.Cells[3].Value) - Convert.ToInt32(lblSepetStockAmount.Text),
-                StockAmountType = cbxStockAmountTypeUpdate.Text,
-                Category = tbxCategoryUpdate.Text
-            });
+            
+                orderDal.Ekle(new Order
+                {
+                    OrderName = lblSepetName.Text,
+                    OrderPrice = Convert.ToDecimal(lblToplamFiyat.Text),
+                    OrderAmount = Convert.ToInt32(lblSepetStockAmount.Text),
+                    OrderStatus = "Siparişe Hazır !"
+                });
+
+                
+            
             dgwProduct.DataSource = productDal.Listeleme();
             MessageBox.Show("Siparişe Hazır !", "Entity Framework Market");
             grpSiparis.Visible = true;
@@ -421,13 +419,49 @@ namespace MMEntityFrameworkMarket
 
             lblSiparisTutar.Text = Convert.ToString(Convert.ToDecimal(lblToplamFiyat.Text) + Convert.ToDecimal(lblSiparisTutar.Text));
 
-            
+
             lblSepetName.Text = "";
             lblSepetPrice.Text = "";
             lblSepetStockAmount.Text = "";
             lblSepetStockAmountType.Text = "";
             lblToplamFiyat.Text = "";
+            
         }
 
+        private void btnGetOrder_Click(object sender, EventArgs e)
+        {
+        //    productDal.Guncelle(new Product
+        //    {
+        //        Id = Convert.ToInt32(dgwProduct.CurrentRow.Cells[0].Value),
+        //        Name = tbxNameUpdate.Text,
+        //        Price = Convert.ToDecimal(tbxPriceUpdate.Text),
+        //        StockAmount = Convert.ToInt32(dgwProduct.CurrentRow.Cells[3].Value) - Convert.ToInt32(lblSepetStockAmount.Text),
+        //        StockAmountType = cbxStockAmountTypeUpdate.Text,
+        //        Category = tbxCategoryUpdate.Text
+        //    });
+        }
+
+        private void btnOrderRemoveAll_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dgwOrder.Rows.Count ; i++)
+            {
+                orderDal.Sil(new Order
+                {
+                    id = Convert.ToInt32(dgwOrder.Rows[i].Cells[0].Value)
+                });
+            }
+            dgwOrder.DataSource = orderDal.Listeleme();
+            MessageBox.Show("Tüm Siparişler Silindi !", "Entity Framework Market");
+        }
+
+        private void btnOrderRemove_Click(object sender, EventArgs e)
+        {
+            orderDal.Sil(new Order
+            {
+                id = Convert.ToInt32(dgwOrder.CurrentRow.Cells[0].Value)
+            });
+            dgwOrder.DataSource = orderDal.Listeleme();
+            MessageBox.Show("Seçili Sipariş Silindi !", "Entity Framework Market");
+        }
     }
 }

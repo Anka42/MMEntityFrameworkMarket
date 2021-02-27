@@ -119,15 +119,14 @@
             this.btnCikis = new System.Windows.Forms.Button();
             this.btnOrder = new System.Windows.Forms.Button();
             this.grpSiparis = new System.Windows.Forms.GroupBox();
+            this.btnOrderRemoveAll = new System.Windows.Forms.Button();
+            this.btnOrderRemove = new System.Windows.Forms.Button();
             this.label37 = new System.Windows.Forms.Label();
             this.lblSiparisTutar = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.btnGetOrder = new System.Windows.Forms.Button();
             this.dgwOrder = new System.Windows.Forms.DataGridView();
-            this.OrderName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpSepet = new System.Windows.Forms.GroupBox();
             this.label33 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
@@ -143,6 +142,11 @@
             this.label57 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
             this.label55 = new System.Windows.Forms.Label();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgwProduct)).BeginInit();
             this.grpProduct.SuspendLayout();
             this.grpUpdate.SuspendLayout();
@@ -1065,6 +1069,8 @@
             // 
             // grpSiparis
             // 
+            this.grpSiparis.Controls.Add(this.btnOrderRemoveAll);
+            this.grpSiparis.Controls.Add(this.btnOrderRemove);
             this.grpSiparis.Controls.Add(this.label37);
             this.grpSiparis.Controls.Add(this.lblSiparisTutar);
             this.grpSiparis.Controls.Add(this.label35);
@@ -1073,11 +1079,31 @@
             this.grpSiparis.Controls.Add(this.dgwOrder);
             this.grpSiparis.Location = new System.Drawing.Point(808, 343);
             this.grpSiparis.Name = "grpSiparis";
-            this.grpSiparis.Size = new System.Drawing.Size(333, 254);
+            this.grpSiparis.Size = new System.Drawing.Size(333, 258);
             this.grpSiparis.TabIndex = 31;
             this.grpSiparis.TabStop = false;
             this.grpSiparis.Text = "Sipariş";
             this.grpSiparis.Visible = false;
+            // 
+            // btnOrderRemoveAll
+            // 
+            this.btnOrderRemoveAll.Location = new System.Drawing.Point(237, 194);
+            this.btnOrderRemoveAll.Name = "btnOrderRemoveAll";
+            this.btnOrderRemoveAll.Size = new System.Drawing.Size(89, 23);
+            this.btnOrderRemoveAll.TabIndex = 17;
+            this.btnOrderRemoveAll.Text = "TÜMÜNÜ SİL";
+            this.btnOrderRemoveAll.UseVisualStyleBackColor = true;
+            this.btnOrderRemoveAll.Click += new System.EventHandler(this.btnOrderRemoveAll_Click);
+            // 
+            // btnOrderRemove
+            // 
+            this.btnOrderRemove.Location = new System.Drawing.Point(189, 194);
+            this.btnOrderRemove.Name = "btnOrderRemove";
+            this.btnOrderRemove.Size = new System.Drawing.Size(41, 23);
+            this.btnOrderRemove.TabIndex = 16;
+            this.btnOrderRemove.Text = "SİL";
+            this.btnOrderRemove.UseVisualStyleBackColor = true;
+            this.btnOrderRemove.Click += new System.EventHandler(this.btnOrderRemove_Click);
             // 
             // label37
             // 
@@ -1118,42 +1144,27 @@
             // 
             // btnGetOrder
             // 
-            this.btnGetOrder.Location = new System.Drawing.Point(245, 194);
+            this.btnGetOrder.Location = new System.Drawing.Point(237, 225);
             this.btnGetOrder.Name = "btnGetOrder";
-            this.btnGetOrder.Size = new System.Drawing.Size(81, 23);
+            this.btnGetOrder.Size = new System.Drawing.Size(89, 23);
             this.btnGetOrder.TabIndex = 1;
-            this.btnGetOrder.Text = "Sipariş Ver";
+            this.btnGetOrder.Text = "SİPARİŞ VER";
             this.btnGetOrder.UseVisualStyleBackColor = true;
+            this.btnGetOrder.Click += new System.EventHandler(this.btnGetOrder_Click);
             // 
             // dgwOrder
             // 
             this.dgwOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
             this.OrderName,
             this.OrderAmount,
-            this.OrderPrice});
+            this.OrderPrice,
+            this.OrderStatus});
             this.dgwOrder.Location = new System.Drawing.Point(7, 37);
             this.dgwOrder.Name = "dgwOrder";
             this.dgwOrder.Size = new System.Drawing.Size(320, 150);
             this.dgwOrder.TabIndex = 0;
-            // 
-            // OrderName
-            // 
-            this.OrderName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.OrderName.HeaderText = "Siparis";
-            this.OrderName.Name = "OrderName";
-            // 
-            // OrderAmount
-            // 
-            this.OrderAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.OrderAmount.HeaderText = "SiparisAdet";
-            this.OrderAmount.Name = "OrderAmount";
-            // 
-            // OrderPrice
-            // 
-            this.OrderPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.OrderPrice.HeaderText = "SiparisFiyat";
-            this.OrderPrice.Name = "OrderPrice";
             // 
             // grpSepet
             // 
@@ -1308,6 +1319,41 @@
             this.label55.Size = new System.Drawing.Size(57, 13);
             this.label55.TabIndex = 0;
             this.label55.Text = "Ürün Adı : ";
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            this.id.Visible = false;
+            // 
+            // OrderName
+            // 
+            this.OrderName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.OrderName.DataPropertyName = "OrderName";
+            this.OrderName.HeaderText = "Name";
+            this.OrderName.Name = "OrderName";
+            // 
+            // OrderAmount
+            // 
+            this.OrderAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.OrderAmount.DataPropertyName = "OrderAmount";
+            this.OrderAmount.HeaderText = "Amount";
+            this.OrderAmount.Name = "OrderAmount";
+            // 
+            // OrderPrice
+            // 
+            this.OrderPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.OrderPrice.DataPropertyName = "OrderPrice";
+            this.OrderPrice.HeaderText = "Price";
+            this.OrderPrice.Name = "OrderPrice";
+            // 
+            // OrderStatus
+            // 
+            this.OrderStatus.DataPropertyName = "OrderStatus";
+            this.OrderStatus.HeaderText = "Status";
+            this.OrderStatus.Name = "OrderStatus";
+            this.OrderStatus.Visible = false;
             // 
             // Form1
             // 
@@ -1493,14 +1539,18 @@
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.DataGridView dgwOrder;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OrderName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OrderAmount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OrderPrice;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label lblSiparisTutar;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Button btnGetOrder;
+        private System.Windows.Forms.Button btnOrderRemoveAll;
+        private System.Windows.Forms.Button btnOrderRemove;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderStatus;
     }
 }
 
