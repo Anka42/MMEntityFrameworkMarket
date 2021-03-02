@@ -34,5 +34,14 @@ namespace MMEntityFrameworkMarket
                 context.SaveChanges();
             }
         }
+        public void Guncelle(Order order)
+        {
+            using (EMarketContext context = new EMarketContext())
+            {
+                var entity = context.Entry(order);
+                entity.State = EntityState.Modified;
+                context.SaveChanges();
+            }
+        }
     }
 }
