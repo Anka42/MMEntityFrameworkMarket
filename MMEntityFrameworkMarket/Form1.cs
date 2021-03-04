@@ -334,9 +334,54 @@ namespace MMEntityFrameworkMarket
         private void btnCikis_Click(object sender, EventArgs e)
         {
             DialogResult dialog = new DialogResult();
-            dialog = MessageBox.Show("Eğer sipariş bölümünüz dolu ise silinecektir ! Devam edilsin mi ?","Uyarı", MessageBoxButtons.YesNo);
-            if (dialog == DialogResult.Yes)
+            if (lblYetki.Text == "Müsteri")
             {
+                dialog = MessageBox.Show("Eğer sipariş bölümünüz dolu ise silinecektir ! Devam edilsin mi ?", "Uyarı", MessageBoxButtons.YesNo);
+                if (dialog == DialogResult.Yes)
+                {
+                    lblYetki.Text = " ";
+                    lblİsim.Visible = false;
+                    lblMesaj.Visible = false;
+                    grpLogin.Visible = false;
+                    grpRegister.Visible = false;
+                    btnClean.Visible = false;
+                    grpProduct.Visible = false;
+                    grpUpdate.Visible = false;
+                    btnRemove.Visible = false;
+                    btnOrder.Visible = false;
+
+                    btnRegister.Visible = true;
+                    btnLogin.Visible = true;
+
+                    tbxUserNameLogin.Text = "";
+                    tbxPasswordLogin.Text = "";
+
+                    btnCikis.Visible = false;
+                    this.Width = 817;
+                    //Sepet temizleme
+                    lblSepetName.Text = "";
+                    lblSepetPrice.Text = "";
+                    lblSepetStockAmount.Text = "";
+                    lblSepetStockAmountType.Text = "";
+                    lblToplamFiyat.Text = "";
+                    grpSepet.Visible = false;
+                    for (int i = 0; i < dgwOrder.Rows.Count; i++)
+                    {
+                        orderDal.Sil(new Order
+                        {
+                            id = Convert.ToInt32(dgwOrder.Rows[i].Cells[0].Value)
+                        });
+                    }
+                    dgwOrder.DataSource = orderDal.Listeleme();
+                    grpSiparis.Visible = false;
+                }
+                else if (dialog == DialogResult.No)
+                {
+                    
+                }
+            }
+            
+            else {
                 lblYetki.Text = " ";
                 lblİsim.Visible = false;
                 lblMesaj.Visible = false;
@@ -356,24 +401,7 @@ namespace MMEntityFrameworkMarket
 
                 btnCikis.Visible = false;
                 this.Width = 817;
-                //Sepet temizleme
-                lblSepetName.Text = "";
-                lblSepetPrice.Text = "";
-                lblSepetStockAmount.Text = "";
-                lblSepetStockAmountType.Text = "";
-                lblToplamFiyat.Text = "";
-                grpSepet.Visible = false;
-                for (int i = 0; i < dgwOrder.Rows.Count; i++)
-                {
-                    orderDal.Sil(new Order
-                    {
-                        id = Convert.ToInt32(dgwOrder.Rows[i].Cells[0].Value)
-                    });
-                }
-                dgwOrder.DataSource = orderDal.Listeleme();
-                grpSiparis.Visible = false;
-            }
-            else { }    
+            }    
         }
 
         private void btnOrder_Click(object sender, EventArgs e)
@@ -420,48 +448,44 @@ namespace MMEntityFrameworkMarket
 
         private void btnSend_Click(object sender, EventArgs e)
         {
+            int a = 0;
             grpSiparis.Visible = true;
             dgwOrder.DataSource = orderDal.Listeleme();
             for (int i = 0; i < dgwOrder.Rows.Count; i++)
             {
-                if (Convert.ToString(lblSepetName.Text) == Convert.ToString(dgwOrder.Rows[i].Cells[2].Value))
+                if (Convert.ToString(lblSepetName.Text) == Convert.ToString(dgwOrder.Rows[i].Cells[1].Value))
                 {
-                    MessageBox.Show("Bu kısma girdim");
-                    orderDal.Guncelle(new Order
-                    {
+                    orderDal.Guncelle(new Order {
                         id = Convert.ToInt32(dgwOrder.Rows[i].Cells[0].Value),
                         OrderName = lblSepetName.Text,
                         OrderPrice = Convert.ToDecimal(lblToplamFiyat.Text) + Convert.ToDecimal(dgwOrder.Rows[i].Cells[3].Value),
                         OrderAmount = Convert.ToInt32(dgwOrder.Rows[i].Cells[2].Value) + Convert.ToInt32(lblSepetStockAmount.Text),
                         OrderStatus = "Siparişe Hazır !"
                     });
+                    a = 1;
                 }
-                else { break; }
             }
-            orderDal.Ekle(new Order
+            dgwOrder.DataSource = orderDal.Listeleme();
+            if (a == 0)
+            {
+                orderDal.Ekle(new Order
                 {
                     OrderName = lblSepetName.Text,
                     OrderPrice = Convert.ToDecimal(lblToplamFiyat.Text),
                     OrderAmount = Convert.ToInt32(lblSepetStockAmount.Text),
                     OrderStatus = "Siparişe Hazır !"
                 });
-            dgwOrder.DataSource = orderDal.Listeleme();
-            
-            
-
-            dgwProduct.DataSource = productDal.Listeleme();
-            MessageBox.Show("Siparişe Hazır !", "Entity Framework Market");
-            
+                dgwOrder.DataSource = orderDal.Listeleme();         
+            }
 
             lblSiparisTutar.Text = Convert.ToString(Convert.ToDecimal(lblToplamFiyat.Text) + Convert.ToDecimal(lblSiparisTutar.Text));
-
+            MessageBox.Show("Siparişe Hazır !", "Entity Framework Market");
 
             lblSepetName.Text = "";
             lblSepetPrice.Text = "";
             lblSepetStockAmount.Text = "";
             lblSepetStockAmountType.Text = "";
             lblToplamFiyat.Text = "";
-            
         }
 
         private void btnGetOrder_Click(object sender, EventArgs e)
