@@ -49,3 +49,4 @@ C:\Users\MMEntityFrameworkMarket\MMEntityFrameworkMarket\obj\Debug\MMEntityFrame
 C:\Users\MMEntityFrameworkMarket\MMEntityFrameworkMarket\obj\Debug\MMEntityFrameworkMarket.csproj.CopyComplete
 C:\Users\MMEntityFrameworkMarket\MMEntityFrameworkMarket\obj\Debug\MMEntityFrameworkMarket.exe
 C:\Users\MMEntityFrameworkMarket\MMEntityFrameworkMarket\obj\Debug\MMEntityFrameworkMarket.pdb
+C:\Users\MMEntityFrameworkMarket\MMEntityFrameworkMarket\obj\Debug\MMEntityFrameworkMarket.Form2.resources

@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using static System.Windows.Forms.DataFormats;
 
 namespace MMEntityFrameworkMarket
 {
@@ -39,7 +40,7 @@ namespace MMEntityFrameworkMarket
             {
                 MessageBox.Show(lblİsim.Text + " Lütfen oturumunuzu kapatarak çıkış yapınız !", "Oturum Açık !");
             }
-            else { this.Close(); }
+            else { Application.Exit(); }
         }
 
         private void cbxSearch_SelectedIndexChanged(object sender, EventArgs e)
@@ -490,15 +491,9 @@ namespace MMEntityFrameworkMarket
 
         private void btnGetOrder_Click(object sender, EventArgs e)
         {
-        //    productDal.Guncelle(new Product
-        //    {
-        //        Id = Convert.ToInt32(dgwProduct.CurrentRow.Cells[0].Value),
-        //        Name = tbxNameUpdate.Text,
-        //        Price = Convert.ToDecimal(tbxPriceUpdate.Text),
-        //        StockAmount = Convert.ToInt32(dgwProduct.CurrentRow.Cells[3].Value) - Convert.ToInt32(lblSepetStockAmount.Text),
-        //        StockAmountType = cbxStockAmountTypeUpdate.Text,
-        //        Category = tbxCategoryUpdate.Text
-        //    });
+            Form2 form2 = new Form2();
+            form2.form1 = this;
+            form2.Show();
         }
 
         private void btnOrderRemoveAll_Click(object sender, EventArgs e)
@@ -530,7 +525,7 @@ namespace MMEntityFrameworkMarket
             {
                 MessageBox.Show(lblİsim.Text + " Lütfen oturumunuzu kapatarak çıkış yapınız !", "Oturum Açık !");
             }
-            else { this.Close(); }
+            else { Application.Exit(); }
         }
     }
 }

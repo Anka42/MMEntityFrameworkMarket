@@ -1433,8 +1433,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgwProduct;
         private System.Windows.Forms.GroupBox grpProduct;
         private System.Windows.Forms.ComboBox cbxStockAmountType;
         private System.Windows.Forms.Label label4;
@@ -1519,12 +1517,10 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label lblMesaj;
-        private System.Windows.Forms.Label lblİsim;
         private System.Windows.Forms.Label lblYetki;
         private System.Windows.Forms.Button btnCikis;
         private System.Windows.Forms.Button btnOrder;
         private System.Windows.Forms.GroupBox grpSiparis;
-        private System.Windows.Forms.GroupBox grpSepet;
         private System.Windows.Forms.Label label55;
         private System.Windows.Forms.Label lblSepetStockAmountType;
         private System.Windows.Forms.Label label57;
@@ -1539,9 +1535,7 @@
         private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.DataGridView dgwOrder;
         private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Label lblSiparisTutar;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Button btnGetOrder;
@@ -1552,6 +1546,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderStatus;
+        public System.Windows.Forms.DataGridView dgwProduct;
+        public System.Windows.Forms.GroupBox grpSepet;
+        public System.Windows.Forms.DataGridView dgwOrder;
+        public System.Windows.Forms.Label lblSiparisTutar;
+        public System.Windows.Forms.Label lblİsim;
     }
 }
 
