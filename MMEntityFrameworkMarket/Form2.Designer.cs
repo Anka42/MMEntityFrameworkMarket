@@ -41,8 +41,8 @@ namespace MMEntityFrameworkMarket
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnOrderSend = new System.Windows.Forms.Button();
             this.tbxCode = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -63,10 +63,9 @@ namespace MMEntityFrameworkMarket
             this.label12 = new System.Windows.Forms.Label();
             this.lblToplamUcret = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.lbld = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.tbxFis = new System.Windows.Forms.TextBox();
+            this.rtbxFis = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwListeOrder)).BeginInit();
@@ -160,16 +159,26 @@ namespace MMEntityFrameworkMarket
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnOrderSend);
             this.groupBox1.Controls.Add(this.tbxCode);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Location = new System.Drawing.Point(63, 353);
+            this.groupBox1.Location = new System.Drawing.Point(63, 509);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(232, 176);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Onay Kodu Tamamla";
+            // 
+            // btnOrderSend
+            // 
+            this.btnOrderSend.Location = new System.Drawing.Point(39, 125);
+            this.btnOrderSend.Name = "btnOrderSend";
+            this.btnOrderSend.Size = new System.Drawing.Size(122, 23);
+            this.btnOrderSend.TabIndex = 12;
+            this.btnOrderSend.Text = "Gönder";
+            this.btnOrderSend.UseVisualStyleBackColor = true;
+            this.btnOrderSend.Click += new System.EventHandler(this.btnOrderSend_Click);
             // 
             // tbxCode
             // 
@@ -178,16 +187,6 @@ namespace MMEntityFrameworkMarket
             this.tbxCode.Name = "tbxCode";
             this.tbxCode.Size = new System.Drawing.Size(122, 20);
             this.tbxCode.TabIndex = 11;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(39, 125);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 23);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Gönder";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox1
             // 
@@ -370,15 +369,6 @@ namespace MMEntityFrameworkMarket
             this.label14.TabIndex = 26;
             this.label14.Text = "Kargo ücreti sabit 9,90 ₺\'dir ";
             // 
-            // lbld
-            // 
-            this.lbld.AutoSize = true;
-            this.lbld.Location = new System.Drawing.Point(478, 459);
-            this.lbld.Name = "lbld";
-            this.lbld.Size = new System.Drawing.Size(41, 13);
-            this.lbld.TabIndex = 27;
-            this.lbld.Text = "label13";
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -397,25 +387,24 @@ namespace MMEntityFrameworkMarket
             this.label15.TabIndex = 29;
             this.label15.Text = "₺";
             // 
-            // tbxFis
+            // rtbxFis
             // 
-            this.tbxFis.AcceptsReturn = true;
-            this.tbxFis.Location = new System.Drawing.Point(318, 502);
-            this.tbxFis.Multiline = true;
-            this.tbxFis.Name = "tbxFis";
-            this.tbxFis.ReadOnly = true;
-            this.tbxFis.Size = new System.Drawing.Size(235, 130);
-            this.tbxFis.TabIndex = 30;
+            this.rtbxFis.Enabled = false;
+            this.rtbxFis.Location = new System.Drawing.Point(51, 293);
+            this.rtbxFis.Name = "rtbxFis";
+            this.rtbxFis.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.rtbxFis.Size = new System.Drawing.Size(244, 210);
+            this.rtbxFis.TabIndex = 31;
+            this.rtbxFis.Text = "";
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 697);
-            this.Controls.Add(this.tbxFis);
+            this.Controls.Add(this.rtbxFis);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.lbld);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.lblToplamUcret);
             this.Controls.Add(this.label12);
@@ -466,7 +455,7 @@ namespace MMEntityFrameworkMarket
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnOrderSend;
         private System.Windows.Forms.TextBox tbxCode;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
@@ -488,9 +477,8 @@ namespace MMEntityFrameworkMarket
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label lblToplamUcret;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label lbld;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox tbxFis;
+        private System.Windows.Forms.RichTextBox rtbxFis;
     }
 }

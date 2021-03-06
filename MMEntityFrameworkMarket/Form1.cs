@@ -523,7 +523,19 @@ namespace MMEntityFrameworkMarket
         {
             if (lblİsim.Visible == true)
             {
-                MessageBox.Show(lblİsim.Text + " Lütfen oturumunuzu kapatarak çıkış yapınız !", "Oturum Açık !");
+                if (Convert.ToString(dgwOrder.Rows[0].Cells[0].Value) != "")
+                {
+                    MessageBox.Show(lblİsim.Text + " Oturumu kapatmadığınız için sepetiniz temizlendi! \n Sonra ki işlemlerinizde oturumunuzu kapatarak çıkış yapınız!", "Oturum Açık !");
+                    for (int i = 0; i < dgwOrder.Rows.Count; i++)
+                    {
+                        orderDal.Sil(new Order
+                        {
+                            id = Convert.ToInt32(dgwOrder.Rows[i].Cells[0].Value)
+                        });
+                    }
+                    dgwOrder.DataSource = orderDal.Listeleme();
+                }
+                else { MessageBox.Show(lblİsim.Text + " Lütfen sonra ki işlemlerinizde oturumunuzu kapatarak çıkış yapınız !", "Oturum Açık !"); }
             }
             else { Application.Exit(); }
         }
