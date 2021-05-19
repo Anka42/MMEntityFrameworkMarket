@@ -33,13 +33,13 @@ namespace MMEntityFrameworkMarket
             this.label1 = new System.Windows.Forms.Label();
             this.lblİsimOrder = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxAdresOrder = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbxCustomerCardNumberOrder = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbxCvc = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblCode = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnOrderSend = new System.Windows.Forms.Button();
             this.tbxCode = new System.Windows.Forms.TextBox();
@@ -65,7 +65,7 @@ namespace MMEntityFrameworkMarket
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.rtbxFis = new System.Windows.Forms.RichTextBox();
+            this.tbxFis = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwListeOrder)).BeginInit();
@@ -97,13 +97,13 @@ namespace MMEntityFrameworkMarket
             this.label2.TabIndex = 2;
             this.label2.Text = "Adres : ";
             // 
-            // textBox1
+            // tbxAdresOrder
             // 
-            this.textBox1.Location = new System.Drawing.Point(138, 146);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(157, 60);
-            this.textBox1.TabIndex = 3;
+            this.tbxAdresOrder.Location = new System.Drawing.Point(138, 146);
+            this.tbxAdresOrder.Multiline = true;
+            this.tbxAdresOrder.Name = "tbxAdresOrder";
+            this.tbxAdresOrder.Size = new System.Drawing.Size(157, 60);
+            this.tbxAdresOrder.TabIndex = 3;
             // 
             // label3
             // 
@@ -114,13 +114,13 @@ namespace MMEntityFrameworkMarket
             this.label3.TabIndex = 4;
             this.label3.Text = "Kart Numarası : ";
             // 
-            // textBox2
+            // tbxCustomerCardNumberOrder
             // 
-            this.textBox2.Location = new System.Drawing.Point(138, 224);
-            this.textBox2.MaxLength = 16;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(157, 20);
-            this.textBox2.TabIndex = 5;
+            this.tbxCustomerCardNumberOrder.Location = new System.Drawing.Point(138, 224);
+            this.tbxCustomerCardNumberOrder.MaxLength = 16;
+            this.tbxCustomerCardNumberOrder.Name = "tbxCustomerCardNumberOrder";
+            this.tbxCustomerCardNumberOrder.Size = new System.Drawing.Size(157, 20);
+            this.tbxCustomerCardNumberOrder.TabIndex = 5;
             // 
             // label4
             // 
@@ -131,13 +131,13 @@ namespace MMEntityFrameworkMarket
             this.label4.TabIndex = 6;
             this.label4.Text = "Cvc : ";
             // 
-            // textBox3
+            // tbxCvc
             // 
-            this.textBox3.Location = new System.Drawing.Point(193, 268);
-            this.textBox3.MaxLength = 3;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(31, 20);
-            this.textBox3.TabIndex = 7;
+            this.tbxCvc.Location = new System.Drawing.Point(193, 268);
+            this.tbxCvc.MaxLength = 3;
+            this.tbxCvc.Name = "tbxCvc";
+            this.tbxCvc.Size = new System.Drawing.Size(31, 20);
+            this.tbxCvc.TabIndex = 7;
             // 
             // label6
             // 
@@ -148,21 +148,23 @@ namespace MMEntityFrameworkMarket
             this.label6.TabIndex = 9;
             this.label6.Text = "Onay Kodunuz : ";
             // 
-            // label7
+            // lblCode
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(129, 51);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "label7";
+            this.lblCode.AutoSize = true;
+            this.lblCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblCode.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblCode.Location = new System.Drawing.Point(120, 51);
+            this.lblCode.Name = "lblCode";
+            this.lblCode.Size = new System.Drawing.Size(47, 15);
+            this.lblCode.TabIndex = 10;
+            this.lblCode.Text = "label7";
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnOrderSend);
             this.groupBox1.Controls.Add(this.tbxCode);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.lblCode);
             this.groupBox1.Location = new System.Drawing.Point(63, 509);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(232, 176);
@@ -387,22 +389,22 @@ namespace MMEntityFrameworkMarket
             this.label15.TabIndex = 29;
             this.label15.Text = "₺";
             // 
-            // rtbxFis
+            // tbxFis
             // 
-            this.rtbxFis.Enabled = false;
-            this.rtbxFis.Location = new System.Drawing.Point(51, 293);
-            this.rtbxFis.Name = "rtbxFis";
-            this.rtbxFis.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.rtbxFis.Size = new System.Drawing.Size(244, 210);
-            this.rtbxFis.TabIndex = 31;
-            this.rtbxFis.Text = "";
+            this.tbxFis.Enabled = false;
+            this.tbxFis.Location = new System.Drawing.Point(51, 293);
+            this.tbxFis.Name = "tbxFis";
+            this.tbxFis.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.tbxFis.Size = new System.Drawing.Size(244, 210);
+            this.tbxFis.TabIndex = 31;
+            this.tbxFis.Text = "";
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 697);
-            this.Controls.Add(this.rtbxFis);
+            this.Controls.Add(this.tbxFis);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label14);
@@ -421,11 +423,11 @@ namespace MMEntityFrameworkMarket
             this.Controls.Add(this.label5);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.tbxCvc);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tbxCustomerCardNumberOrder);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbxAdresOrder);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblİsimOrder);
             this.Controls.Add(this.label1);
@@ -447,13 +449,13 @@ namespace MMEntityFrameworkMarket
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblİsimOrder;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxAdresOrder;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbxCustomerCardNumberOrder;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbxCvc;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblCode;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnOrderSend;
         private System.Windows.Forms.TextBox tbxCode;
@@ -479,6 +481,6 @@ namespace MMEntityFrameworkMarket
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.RichTextBox rtbxFis;
+        private System.Windows.Forms.RichTextBox tbxFis;
     }
 }

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +13,7 @@ namespace MMEntityFrameworkMarket
 {
     public partial class Form2 : Form
     {
+
         public Form1 form1;
         OrderDal orderDal = new OrderDal();
         ProductDal productDal = new ProductDal();
@@ -30,26 +32,29 @@ namespace MMEntityFrameworkMarket
                 decimal a = 0.00m;
                 lblKargo.Text = Convert.ToString(a);
             }
-            else 
+            else
             {
                 decimal b = 9.90m;
                 lblKargo.Text = Convert.ToString(b);
             }
             lblToplamUcret.Text = Convert.ToString(Convert.ToDecimal(lblKargo.Text) + Convert.ToDecimal(lblSiparisTutarOrder.Text));
             //FisYazdirmaKodSatiri
-            rtbxFis.Text = "  Ürün İsmi            " + "Miktarı         " + "Fiyatı | \n";
+            tbxFis.Text = "  Ürün İsmi            " + "Miktarı         " + "Fiyatı | \n";
             for (int i = 0; i < dgwListeOrder.Rows.Count; i++)
             {
-                rtbxFis.Text = rtbxFis.Text + "\n    " + dgwListeOrder.Rows[i].Cells[1].Value.ToString() + "                " + dgwListeOrder.Rows[i].Cells[2].Value.ToString() + "               " + dgwListeOrder.Rows[i].Cells[3].Value.ToString() + " | ";
+                tbxFis.Text = tbxFis.Text + "\n    " + dgwListeOrder.Rows[i].Cells[1].Value.ToString() + "                " + dgwListeOrder.Rows[i].Cells[2].Value.ToString() + "               " + dgwListeOrder.Rows[i].Cells[3].Value.ToString() + " | ";
             }
-            rtbxFis.Text = rtbxFis.Text + "\n" + "--------------------------------------------------------------------\n ";
-            rtbxFis.Text = rtbxFis.Text + "Ürün Toplamı  :" + "                         " + lblSiparisTutarOrder.Text + " | \n ";
-            rtbxFis.Text = rtbxFis.Text + "Kargo              :" + "                          " + lblKargo.Text + " | \n ";
-            rtbxFis.Text = rtbxFis.Text + "Toplam Fiyat   :" + "                        " + lblToplamUcret.Text + " | \n";
+            tbxFis.Text = tbxFis.Text + "\n" + "--------------------------------------------------------------------\n ";
+            tbxFis.Text = tbxFis.Text + "Ürün Toplamı  :" + "                         " + lblSiparisTutarOrder.Text + " | \n ";
+            tbxFis.Text = tbxFis.Text + "Kargo              :" + "                          " + lblKargo.Text + " | \n ";
+            tbxFis.Text = tbxFis.Text + "Toplam Fiyat   :" + "                        " + lblToplamUcret.Text + " | \n";
         }
 
         private void btnOrderSend_Click(object sender, EventArgs e)
         {
+            Random rand = new Random();
+            int code = rand.Next(100000,999999);
+            lblCode.Text = Convert.ToString(code);
             for (int i = 0; i < dgwListeOrder.Rows.Count; i++)
             {
                 for (int j = 0; j < form1.dgwProduct.Rows.Count; j++)
