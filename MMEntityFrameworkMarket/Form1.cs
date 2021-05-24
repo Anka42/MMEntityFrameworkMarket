@@ -32,6 +32,12 @@ namespace MMEntityFrameworkMarket
             {
                 dgwProduct.DataSource = context.Products.ToList();
             }
+            using (EMarketContext context = new EMarketContext())
+            {
+                
+                dgwSiparisListeleme.DataSource = context.GetOrders.ToList();
+            }
+            
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -303,6 +309,8 @@ namespace MMEntityFrameworkMarket
                     grpProduct.Visible = true;
                     grpUpdate.Visible = true;
                     grpLogin.Visible = false;
+
+                    dgwSiparisListeleme.Visible = true;
 
                     btnClean.Visible = true;
                     btnRemove.Visible = true;

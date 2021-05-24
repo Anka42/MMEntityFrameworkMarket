@@ -16,5 +16,13 @@ namespace MMEntityFrameworkMarket
                 context.SaveChanges();
             }
         }
+
+        public List<GetOrder> Listeleme()
+        {
+            using (EMarketContext context = new EMarketContext())
+            {
+                return context.GetOrders.ToList();
+            }
+        }
     }
 }

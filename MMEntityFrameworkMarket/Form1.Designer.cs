@@ -147,6 +147,7 @@
             this.label57 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
             this.label55 = new System.Windows.Forms.Label();
+            this.dgwSiparisListeleme = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgwProduct)).BeginInit();
             this.grpProduct.SuspendLayout();
             this.grpUpdate.SuspendLayout();
@@ -169,6 +170,7 @@
             this.grpSepet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxEksi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArti)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwSiparisListeleme)).BeginInit();
             this.SuspendLayout();
             // 
             // dgwProduct
@@ -1355,11 +1357,23 @@
             this.label55.TabIndex = 0;
             this.label55.Text = "Ürün Adı : ";
             // 
+            // dgwSiparisListeleme
+            // 
+            this.dgwSiparisListeleme.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwSiparisListeleme.Location = new System.Drawing.Point(810, 30);
+            this.dgwSiparisListeleme.Name = "dgwSiparisListeleme";
+            this.dgwSiparisListeleme.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dgwSiparisListeleme.Size = new System.Drawing.Size(335, 572);
+            this.dgwSiparisListeleme.TabIndex = 14;
+            this.dgwSiparisListeleme.VirtualMode = true;
+            this.dgwSiparisListeleme.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1153, 697);
+            this.Controls.Add(this.dgwSiparisListeleme);
             this.Controls.Add(this.grpSepet);
             this.Controls.Add(this.grpSiparis);
             this.Controls.Add(this.btnOrder);
@@ -1427,6 +1441,7 @@
             this.grpSepet.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxEksi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArti)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwSiparisListeleme)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1551,6 +1566,7 @@
         public System.Windows.Forms.DataGridView dgwOrder;
         public System.Windows.Forms.Label lblSiparisTutar;
         public System.Windows.Forms.Label lblİsim;
+        private System.Windows.Forms.DataGridView dgwSiparisListeleme;
     }
 }
 
