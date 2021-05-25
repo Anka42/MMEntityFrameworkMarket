@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace MMEntityFrameworkMarket
 {
@@ -22,6 +23,16 @@ namespace MMEntityFrameworkMarket
             using (EMarketContext context = new EMarketContext())
             {
                 return context.GetOrders.ToList();
+            }
+        }
+
+        public void Sil(GetOrder getOrder)
+        {
+            using (EMarketContext context = new EMarketContext())
+            {
+                var entity = context.Entry(getOrder);
+                entity.State = EntityState.Deleted;
+                context.SaveChanges();
             }
         }
     }

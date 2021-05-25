@@ -95,6 +95,7 @@ namespace MMEntityFrameworkMarket
                         id = Convert.ToInt32(dgwListeOrder.Rows[i].Cells[0].Value)
                     });
                 }
+                form1.dgwOrder.DataSource = orderDal.Listeleme();
                 dgwListeOrder.DataSource = orderDal.Listeleme();
                 lblİsimOrder.Text = "";
                 tbxAdresOrder.Text = "";
@@ -129,7 +130,7 @@ namespace MMEntityFrameworkMarket
         {
             int cardNo = tbxCustomerCardNumberOrder.TextLength;
             int cvc = tbxCvc.TextLength;
-            if (cardNo == 16 && cvc == 3)
+            if (lblCode.Text == tbxCode.Text && cardNo == 16 && cvc == 3)
             {
                 tbxFis.Visible = true;
                 grpOnay.Visible = true;
@@ -140,6 +141,11 @@ namespace MMEntityFrameworkMarket
             {
                 MessageBox.Show("Kart numaranız veya Cvc güvenlik kodunuz eksik olabilir!");
             }
+        }
+
+        private void tbxCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }

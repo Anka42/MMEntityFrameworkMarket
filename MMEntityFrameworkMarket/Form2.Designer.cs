@@ -192,6 +192,7 @@ namespace MMEntityFrameworkMarket
             this.tbxCode.Name = "tbxCode";
             this.tbxCode.Size = new System.Drawing.Size(122, 20);
             this.tbxCode.TabIndex = 11;
+            this.tbxCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxCode_KeyPress);
             // 
             // pictureBox1
             // 

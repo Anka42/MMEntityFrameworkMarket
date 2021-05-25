@@ -148,6 +148,17 @@
             this.label56 = new System.Windows.Forms.Label();
             this.label55 = new System.Windows.Forms.Label();
             this.dgwSiparisListeleme = new System.Windows.Forms.DataGridView();
+            this.label36 = new System.Windows.Forms.Label();
+            this.grpSiparisListeleme = new System.Windows.Forms.GroupBox();
+            this.btnCustomerCanceled = new System.Windows.Forms.Button();
+            this.btnCustomerCompleted = new System.Windows.Forms.Button();
+            this.btnCustomerForth = new System.Windows.Forms.Button();
+            this.btnCustomerBack = new System.Windows.Forms.Button();
+            this.lblCustomerContents = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.lblCustomerAddress = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.lblCustomerName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgwProduct)).BeginInit();
             this.grpProduct.SuspendLayout();
             this.grpUpdate.SuspendLayout();
@@ -171,6 +182,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbxEksi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArti)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwSiparisListeleme)).BeginInit();
+            this.grpSiparisListeleme.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgwProduct
@@ -1360,20 +1372,154 @@
             // dgwSiparisListeleme
             // 
             this.dgwSiparisListeleme.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwSiparisListeleme.Location = new System.Drawing.Point(810, 30);
+            this.dgwSiparisListeleme.Location = new System.Drawing.Point(270, 10);
             this.dgwSiparisListeleme.Name = "dgwSiparisListeleme";
             this.dgwSiparisListeleme.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dgwSiparisListeleme.Size = new System.Drawing.Size(335, 572);
+            this.dgwSiparisListeleme.Size = new System.Drawing.Size(62, 36);
             this.dgwSiparisListeleme.TabIndex = 14;
             this.dgwSiparisListeleme.VirtualMode = true;
             this.dgwSiparisListeleme.Visible = false;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label36.Location = new System.Drawing.Point(18, 49);
+            this.label36.Name = "label36";
+            this.label36.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label36.Size = new System.Drawing.Size(90, 16);
+            this.label36.TabIndex = 33;
+            this.label36.Text = "ADI SOYADI :";
+            // 
+            // grpSiparisListeleme
+            // 
+            this.grpSiparisListeleme.Controls.Add(this.btnCustomerCanceled);
+            this.grpSiparisListeleme.Controls.Add(this.btnCustomerCompleted);
+            this.grpSiparisListeleme.Controls.Add(this.btnCustomerForth);
+            this.grpSiparisListeleme.Controls.Add(this.btnCustomerBack);
+            this.grpSiparisListeleme.Controls.Add(this.lblCustomerContents);
+            this.grpSiparisListeleme.Controls.Add(this.label42);
+            this.grpSiparisListeleme.Controls.Add(this.lblCustomerAddress);
+            this.grpSiparisListeleme.Controls.Add(this.label44);
+            this.grpSiparisListeleme.Controls.Add(this.lblCustomerName);
+            this.grpSiparisListeleme.Controls.Add(this.dgwSiparisListeleme);
+            this.grpSiparisListeleme.Controls.Add(this.label36);
+            this.grpSiparisListeleme.Location = new System.Drawing.Point(805, 42);
+            this.grpSiparisListeleme.Name = "grpSiparisListeleme";
+            this.grpSiparisListeleme.Size = new System.Drawing.Size(335, 585);
+            this.grpSiparisListeleme.TabIndex = 34;
+            this.grpSiparisListeleme.TabStop = false;
+            this.grpSiparisListeleme.Text = "Sparişler Listesi";
+            this.grpSiparisListeleme.Visible = false;
+            // 
+            // btnCustomerCanceled
+            // 
+            this.btnCustomerCanceled.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnCustomerCanceled.Location = new System.Drawing.Point(172, 555);
+            this.btnCustomerCanceled.Name = "btnCustomerCanceled";
+            this.btnCustomerCanceled.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnCustomerCanceled.Size = new System.Drawing.Size(150, 23);
+            this.btnCustomerCanceled.TabIndex = 44;
+            this.btnCustomerCanceled.Text = "Sipariş İptal Edildi";
+            this.btnCustomerCanceled.UseVisualStyleBackColor = true;
+            this.btnCustomerCanceled.Click += new System.EventHandler(this.btnCustomerCanceled_Click);
+            // 
+            // btnCustomerCompleted
+            // 
+            this.btnCustomerCompleted.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnCustomerCompleted.Location = new System.Drawing.Point(15, 556);
+            this.btnCustomerCompleted.Name = "btnCustomerCompleted";
+            this.btnCustomerCompleted.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnCustomerCompleted.Size = new System.Drawing.Size(150, 23);
+            this.btnCustomerCompleted.TabIndex = 43;
+            this.btnCustomerCompleted.Text = "Sipariş Tamamlandı";
+            this.btnCustomerCompleted.UseVisualStyleBackColor = true;
+            this.btnCustomerCompleted.Click += new System.EventHandler(this.btnCustomerCompleted_Click);
+            // 
+            // btnCustomerForth
+            // 
+            this.btnCustomerForth.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnCustomerForth.Location = new System.Drawing.Point(171, 525);
+            this.btnCustomerForth.Name = "btnCustomerForth";
+            this.btnCustomerForth.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnCustomerForth.Size = new System.Drawing.Size(50, 23);
+            this.btnCustomerForth.TabIndex = 42;
+            this.btnCustomerForth.Text = "İleri";
+            this.btnCustomerForth.UseVisualStyleBackColor = true;
+            this.btnCustomerForth.Click += new System.EventHandler(this.btnCustomerForth_Click);
+            // 
+            // btnCustomerBack
+            // 
+            this.btnCustomerBack.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnCustomerBack.Location = new System.Drawing.Point(118, 525);
+            this.btnCustomerBack.Name = "btnCustomerBack";
+            this.btnCustomerBack.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnCustomerBack.Size = new System.Drawing.Size(50, 23);
+            this.btnCustomerBack.TabIndex = 41;
+            this.btnCustomerBack.Text = "Geri";
+            this.btnCustomerBack.UseVisualStyleBackColor = true;
+            this.btnCustomerBack.Click += new System.EventHandler(this.btnCustomerBack_Click);
+            // 
+            // lblCustomerContents
+            // 
+            this.lblCustomerContents.AutoSize = true;
+            this.lblCustomerContents.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblCustomerContents.Location = new System.Drawing.Point(19, 223);
+            this.lblCustomerContents.Name = "lblCustomerContents";
+            this.lblCustomerContents.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblCustomerContents.Size = new System.Drawing.Size(15, 16);
+            this.lblCustomerContents.TabIndex = 40;
+            this.lblCustomerContents.Text = "6";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label42.Location = new System.Drawing.Point(119, 194);
+            this.label42.Name = "label42";
+            this.label42.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label42.Size = new System.Drawing.Size(122, 16);
+            this.label42.TabIndex = 39;
+            this.label42.Text = "SİPARİŞ LİSTESİ :";
+            // 
+            // lblCustomerAddress
+            // 
+            this.lblCustomerAddress.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblCustomerAddress.Location = new System.Drawing.Point(78, 70);
+            this.lblCustomerAddress.Name = "lblCustomerAddress";
+            this.lblCustomerAddress.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblCustomerAddress.Size = new System.Drawing.Size(251, 116);
+            this.lblCustomerAddress.TabIndex = 38;
+            this.lblCustomerAddress.Text = "2";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label44.Location = new System.Drawing.Point(18, 71);
+            this.label44.Name = "label44";
+            this.label44.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label44.Size = new System.Drawing.Size(60, 16);
+            this.label44.TabIndex = 37;
+            this.label44.Text = "ADRES :";
+            // 
+            // lblCustomerName
+            // 
+            this.lblCustomerName.AutoSize = true;
+            this.lblCustomerName.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblCustomerName.Location = new System.Drawing.Point(114, 48);
+            this.lblCustomerName.Name = "lblCustomerName";
+            this.lblCustomerName.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblCustomerName.Size = new System.Drawing.Size(16, 18);
+            this.lblCustomerName.TabIndex = 34;
+            this.lblCustomerName.Text = "1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1153, 697);
-            this.Controls.Add(this.dgwSiparisListeleme);
+            this.Controls.Add(this.grpSiparisListeleme);
             this.Controls.Add(this.grpSepet);
             this.Controls.Add(this.grpSiparis);
             this.Controls.Add(this.btnOrder);
@@ -1442,6 +1588,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbxEksi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArti)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwSiparisListeleme)).EndInit();
+            this.grpSiparisListeleme.ResumeLayout(false);
+            this.grpSiparisListeleme.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1567,6 +1715,17 @@
         public System.Windows.Forms.Label lblSiparisTutar;
         public System.Windows.Forms.Label lblİsim;
         private System.Windows.Forms.DataGridView dgwSiparisListeleme;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.GroupBox grpSiparisListeleme;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label lblCustomerAddress;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label lblCustomerName;
+        private System.Windows.Forms.Button btnCustomerCanceled;
+        private System.Windows.Forms.Button btnCustomerCompleted;
+        private System.Windows.Forms.Button btnCustomerForth;
+        private System.Windows.Forms.Button btnCustomerBack;
+        private System.Windows.Forms.Label lblCustomerContents;
     }
 }
 

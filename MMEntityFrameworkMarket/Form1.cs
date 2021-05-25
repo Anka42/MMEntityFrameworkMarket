@@ -20,6 +20,7 @@ namespace MMEntityFrameworkMarket
         OrderDal orderDal = new OrderDal();
         UserDal userDal = new UserDal();
         User user = new User();
+        GetOrderDal getOrderDal = new GetOrderDal();
         public Form1()
         {
             InitializeComponent();
@@ -37,7 +38,10 @@ namespace MMEntityFrameworkMarket
                 
                 dgwSiparisListeleme.DataSource = context.GetOrders.ToList();
             }
-            
+            lblCustomerName.Text = dgwSiparisListeleme.Rows[CustomerOrderCounter].Cells[1].Value.ToString();
+            lblCustomerAddress.Text = dgwSiparisListeleme.Rows[CustomerOrderCounter].Cells[2].Value.ToString();
+            lblCustomerContents.Text = dgwSiparisListeleme.Rows[CustomerOrderCounter].Cells[6].Value.ToString();
+            //lblCustomerContents.Text = lblCustomerContents.Text+"/n"+ dgwSiparisListeleme.Rows[0].Cells[6].Value.ToString();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -186,7 +190,7 @@ namespace MMEntityFrameworkMarket
             grpRegister.Visible = true;
             grpLogin.Visible = false;
             this.Width = 1169;
-
+            grpSiparisListeleme.Visible = false;
         }
 
         private void btnRegister2_Click(object sender, EventArgs e)
@@ -269,6 +273,7 @@ namespace MMEntityFrameworkMarket
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            grpSiparisListeleme.Visible = false;
             grpRegister.Visible = false;
             grpLogin.Visible = true;
             this.Width = 1169;
@@ -279,12 +284,14 @@ namespace MMEntityFrameworkMarket
         {
             grpLogin.Visible = true;
             grpRegister.Visible = false;
+            grpSiparisListeleme.Visible = false;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             grpRegister.Visible = true;
             grpLogin.Visible = false;
+            grpSiparisListeleme.Visible = false;
         }
 
         private void btnLogin2_Click(object sender, EventArgs e)
@@ -309,8 +316,7 @@ namespace MMEntityFrameworkMarket
                     grpProduct.Visible = true;
                     grpUpdate.Visible = true;
                     grpLogin.Visible = false;
-
-                    dgwSiparisListeleme.Visible = true;
+                    grpSiparisListeleme.Visible=true;
 
                     btnClean.Visible = true;
                     btnRemove.Visible = true;
@@ -331,6 +337,7 @@ namespace MMEntityFrameworkMarket
                     btnLogin.Visible = false;
                     btnOrder.Visible = true;
                     btnCikis.Visible = true;
+                    grpSiparisListeleme.Visible = false;
                 }
 
             }
@@ -368,6 +375,7 @@ namespace MMEntityFrameworkMarket
                     btnCikis.Visible = false;
                     this.Width = 817;
                     //Sepet temizleme
+                    grpSiparisListeleme.Visible = false;
                     lblSepetName.Text = "";
                     lblSepetPrice.Text = "";
                     lblSepetStockAmount.Text = "";
@@ -391,6 +399,7 @@ namespace MMEntityFrameworkMarket
             }
             
             else {
+                grpSiparisListeleme.Visible = false;
                 lblYetki.Text = " ";
                 lblİsim.Visible = false;
                 lblMesaj.Visible = false;
@@ -546,6 +555,81 @@ namespace MMEntityFrameworkMarket
                 else { MessageBox.Show(lblİsim.Text + " Lütfen sonra ki işlemlerinizde oturumunuzu kapatarak çıkış yapınız !", "Oturum Açık !"); }
             }
             else { Application.Exit(); }
+        }
+        int CustomerOrderCounter = 0;
+        private void btnCustomerBack_Click(object sender, EventArgs e)
+        {
+            CustomerOrderCounter -= 1;
+            if (CustomerOrderCounter  >= 0)
+            {
+                
+                lblCustomerName.Text = dgwSiparisListeleme.Rows[CustomerOrderCounter].Cells[1].Value.ToString();
+                lblCustomerAddress.Text = dgwSiparisListeleme.Rows[CustomerOrderCounter].Cells[2].Value.ToString();
+                lblCustomerContents.Text = dgwSiparisListeleme.Rows[CustomerOrderCounter].Cells[6].Value.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Listenin başına ulaştınız !!!", "MM Entity Framework Market | Uyarı !");
+                CustomerOrderCounter += 1;
+            }
+        }
+
+        private void btnCustomerForth_Click(object sender, EventArgs e)
+        {
+            CustomerOrderCounter += 1;
+            if (CustomerOrderCounter <= dgwSiparisListeleme.Rows.Count-1)
+            {
+                lblCustomerName.Text = dgwSiparisListeleme.Rows[CustomerOrderCounter].Cells[1].Value.ToString();
+                lblCustomerAddress.Text = dgwSiparisListeleme.Rows[CustomerOrderCounter].Cells[2].Value.ToString();
+                lblCustomerContents.Text = dgwSiparisListeleme.Rows[CustomerOrderCounter].Cells[6].Value.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Listenin sonuna ulaştınız !!!", "MM Entity Framework Market | Uyarı !");
+                CustomerOrderCounter -= 1;
+            }
+        }
+
+        private void btnCustomerCompleted_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(dgwSiparisListeleme.Rows[CustomerOrderCounter].Cells[0].Value) == 10)
+            {
+                MessageBox.Show("Seçili Sipariş Listesi Örnektir Silinmez ! ! !", "Entity Framework Market");
+            }
+            else
+            {
+                getOrderDal.Sil(new GetOrder
+                {
+                    Id = Convert.ToInt32(dgwSiparisListeleme.Rows[CustomerOrderCounter].Cells[0].Value)
+                });
+                dgwSiparisListeleme.DataSource = getOrderDal.Listeleme();
+                MessageBox.Show("Seçili Sipariş Listesi Silindi !", "Entity Framework Market");
+                CustomerOrderCounter = 0;
+                lblCustomerName.Text = dgwSiparisListeleme.Rows[CustomerOrderCounter].Cells[1].Value.ToString();
+                lblCustomerAddress.Text = dgwSiparisListeleme.Rows[CustomerOrderCounter].Cells[2].Value.ToString();
+                lblCustomerContents.Text = dgwSiparisListeleme.Rows[CustomerOrderCounter].Cells[6].Value.ToString();
+            }
+        }
+
+        private void btnCustomerCanceled_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(dgwSiparisListeleme.Rows[CustomerOrderCounter].Cells[0].Value) == 10)
+            {
+                MessageBox.Show("Seçili Sipariş Listesi Örnektir Silinmez ! ! !", "Entity Framework Market");
+            }
+            else
+            {
+                getOrderDal.Sil(new GetOrder
+                {
+                    Id = Convert.ToInt32(dgwSiparisListeleme.Rows[CustomerOrderCounter].Cells[0].Value)
+                });
+                dgwSiparisListeleme.DataSource = getOrderDal.Listeleme();
+                MessageBox.Show("Seçili Sipariş Listesi Silindi !", "Entity Framework Market");
+                CustomerOrderCounter = 0;
+                lblCustomerName.Text = dgwSiparisListeleme.Rows[CustomerOrderCounter].Cells[1].Value.ToString();
+                lblCustomerAddress.Text = dgwSiparisListeleme.Rows[CustomerOrderCounter].Cells[2].Value.ToString();
+                lblCustomerContents.Text = dgwSiparisListeleme.Rows[CustomerOrderCounter].Cells[6].Value.ToString();
+            }
         }
     }
 }
